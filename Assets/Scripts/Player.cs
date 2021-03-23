@@ -7,6 +7,10 @@ public class Player : NetworkBehaviour
     public Camera MainCamera;
     public Gun Gun;
 
+    [Header("Particles")]
+    public GameObject BloodHit;
+    public GameObject GroundHit;
+
     private Rigidbody rigidBody;
     private bool isGrounded = true;
     private bool isPaused;
@@ -105,31 +109,57 @@ public class Player : NetworkBehaviour
 
     private void ShootGunLocal()
     {
-        SyncMuzzleFlashWithServer(netId);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            Player player = hit.collider.GetComponent<Player>();
+            if (player != null)
+            {
+                DamagePlayerOnServer(player, hit.point, hit.normal);
+            }
+            else
+            {
+                HitGroundOnServer(hit.point);
+            }
+        }
+
+        SyncMuzzleFlashWithServer(this);
     }
 
     [Command]
-    private void SyncMuzzleFlashWithServer(uint id)
+    private void DamagePlayerOnServer(Player player, Vector3 point, Vector3 hitDirection)
     {
-        NetworkBehaviour[] gameObjects = FindObjectsOfType<NetworkBehaviour>();
-        foreach (NetworkBehaviour nb in gameObjects)
-        {
-            if (nb.netId == id)
-            {
-                Player player = nb.GetComponent<Player>();
-                if (player != null)
-                {
-                    FireGun(player);
-                    break;
-                }
-            }
-        }
+        HitPlayerToClients(player, hitDirection);
+        GameObject hit = Instantiate(BloodHit, point, Quaternion.identity);
+        NetworkServer.Spawn(hit);
+        Destroy(hit, 2.5f);
+    }
+
+    [Command]
+    private void HitGroundOnServer(Vector3 point)
+    {
+        GameObject hit = Instantiate(GroundHit, point, Quaternion.identity);
+        NetworkServer.Spawn(hit);
+        Destroy(hit, 2.5f);
+    }
+
+    [Command]
+    private void SyncMuzzleFlashWithServer(Player player)
+    {
+        FireGunToClients(player);
     }
 
     [ClientRpc]
-    private void FireGun(Player player)
+    private void FireGunToClients(Player player)
     {
         player.GetComponentInChildren<Gun>().ShootGun();
+    }
+
+    [ClientRpc]
+    private void HitPlayerToClients(Player player, Vector3 hitDirection)
+    {
+        player.GetComponent<Rigidbody>().AddForce(-hitDirection * 5, ForceMode.Impulse);
     }
 
     private void ReleaseGun()

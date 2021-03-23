@@ -105,6 +105,14 @@
     <Compile Include="Assets/Scripts/MouseLook.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Models/AntialiasingModel.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Models/DitheringModel.cs" />
+    <Compile Include="Assets/EffectExamples/Shared/Scripts/DecalDestroyer.cs" />
+    <Compile Include="Assets/EffectExamples/Shared/Scripts/ParticleCollision.cs" />
+    <Compile Include="Assets/EffectExamples/TutorialInfo/Scripts/Readme.cs" />
+    <Compile Include="Assets/EffectExamples/Shared/Scripts/ExtinguishableFire.cs" />
+    <Compile Include="Assets/EffectExamples/Shared/Scripts/GunShoot.cs" />
+    <Compile Include="Assets/EffectExamples/Shared/Scripts/GunAim.cs" />
+    <Compile Include="Assets/EffectExamples/Shared/Scripts/ParticleExamples.cs" />
+    <Compile Include="Assets/EffectExamples/Shared/Scripts/ParticleMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll" />
@@ -166,6 +174,7 @@
      <None Include="Assets/PostProcessing/Resources/Shaders/DepthOfField.cginc" />
      <None Include="Assets/ScriptTemplates/50-Mirror__Network Manager-NewNetworkManager.cs.txt" />
      <None Include="Assets/ScriptTemplates/54-Mirror__Network Room Manager-NewNetworkRoomManager.cs.txt" />
+     <None Include="Assets/EffectExamples/Shared/Shaders/SurfaceShader_VC.shader" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -1,31 +1,21 @@
 ﻿<Properties StartupConfiguration="{E7979B17-4912-27CD-C5B5-1179E0D60AF2}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="23" Column="40" />
-      <File FileName="Assets/Scripts/Gun.cs" Line="46" Column="37" />
-      <File FileName="Assets/Scripts/MouseLook.cs" />
-      <File FileName="Assets/Mirror/Runtime/NetworkLoop.cs" Line="140" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="162" Column="57" />
+      <File FileName="Assets/Scripts/Gun.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/MouseLook.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Multiplayer COD" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Mirror" expanded="True">
-                <Node name="Runtime" expanded="True" />
-              </Node>
-              <Node name="Scripts" expanded="True">
-                <Node name="Player.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="Multiplayer COD" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c6e0cf4d-55fd-429c-9495-06ec6b4729ab" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="90006096-0221-46d3-b5c7-ef1b2eab28bc" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

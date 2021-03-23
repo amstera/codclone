@@ -62,8 +62,8 @@ public class Gun : MonoBehaviour
 
     private void SwayMovement()
     {
-        float movementX = Input.GetAxis("Mouse X") * Amount + Input.GetAxis("Horizontal") * Amount/3;
-        float movementY = Input.GetAxis("Mouse Y") * Amount + Input.GetAxis("Vertical") * Amount/3;
+        float movementX = Input.GetAxis("Mouse X") * Amount + Input.GetAxis("Horizontal") * Amount / 3;
+        float movementY = Input.GetAxis("Mouse Y") * Amount + Input.GetAxis("Vertical") * Amount / 3;
         movementX = Mathf.Clamp(movementX, -MaxAmount, MaxAmount);
         movementY = Mathf.Clamp(movementY, -MaxAmount, MaxAmount);
 

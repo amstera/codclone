@@ -227,6 +227,8 @@ MonoBehaviour:
   Speed: 5
   MainCamera: {fileID: 3112117214953604398}
   Gun: {fileID: 2025153145809666706}
+  BloodHit: {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069, type: 3}
+  GroundHit: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
 --- !u!114 &7666582962671224745
 MonoBehaviour:
   m_ObjectHideFlags: 0
