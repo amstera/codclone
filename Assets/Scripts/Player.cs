@@ -11,6 +11,7 @@ public class Player : NetworkBehaviour
     public GameObject BloodHit;
     public GameObject GroundHit;
     public int Health = 10;
+    public bool IsDead;
 
     private Rigidbody rigidBody;
     private Animator animator;
@@ -19,18 +20,20 @@ public class Player : NetworkBehaviour
     private bool isPaused;
     private bool isAiming;
     private bool isWalking;
-    private bool isDead;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        lowHealth = GameObject.Find("Canvas").transform.Find("Low Health").gameObject;
         animator.SetInteger("AnimationState", 1);
         rigidBody.freezeRotation = true;
-        Cursor.lockState = CursorLockMode.Locked;
 
-        if (!isLocalPlayer)
+        if (isLocalPlayer)
+        {
+            lowHealth = GameObject.Find("Canvas").transform.Find("Low Health").gameObject;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
         {
             MainCamera.enabled = false;
         }
@@ -38,12 +41,15 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
-        CheckHealth();
-
-        if (!isLocalPlayer)
+        if (!isLocalPlayer || IsDead)
 		{
 			return;
 		}
+
+        if (Health == 10)
+        {
+            lowHealth.SetActive(false);
+        }
 
         MoveControls();
 
@@ -166,25 +172,43 @@ public class Player : NetworkBehaviour
         }
     }
 
-    private void CheckHealth()
+    private void TakeHit(Vector3 hitDirection)
     {
-        if (Health <= 0 && !isDead)
+        if (IsDead)
         {
-            animator.enabled = false;
-            //die
-            isDead = true;
+            return;
         }
-        else if (isLocalPlayer)
+
+        Health -= 5;
+        if (Health <= 0)
         {
-            if (Health <= 5)
+            Die(hitDirection);
+        }
+        else
+        {
+            rigidBody.AddForce(-hitDirection * 7.5f, ForceMode.Impulse);
+            if (Health <= 5 && isLocalPlayer)
             {
                 lowHealth.SetActive(true);
             }
-            else
-            {
-                lowHealth.SetActive(false);
-            }
         }
+    }
+
+    private void Die(Vector3 hitDirection)
+    {
+        animator.enabled = false;
+        foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
+        {
+            rb.isKinematic = false;
+            rb.AddForce(-hitDirection * 2.5f, ForceMode.Impulse);
+        }
+        rigidBody.isKinematic = true;
+        foreach (Collider col in GetComponentsInChildren<Collider>())
+        {
+            col.enabled = true;
+        }
+        GetComponent<BoxCollider>().enabled = false;
+        IsDead = true;
     }
 
     [Command]
@@ -225,8 +249,7 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     private void HitPlayerToClients(Player player, Vector3 hitDirection)
     {
-        player.Health -= 5;
-        player.GetComponent<Rigidbody>().AddForce(-hitDirection * 5, ForceMode.Impulse);
+        player.TakeHit(hitDirection);
     }
 
     [ClientRpc]

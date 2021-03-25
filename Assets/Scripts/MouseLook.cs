@@ -28,7 +28,7 @@ public class MouseLook : NetworkBehaviour
 
 	void Update()
 	{
-        if (!isLocalPlayer)
+        if (!isLocalPlayer || GetComponent<Player>().IsDead)
         {
             return;
         }

@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{E7979B17-4912-27CD-C5B5-1179E0D60AF2}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="190" Column="14" />
+      <File FileName="Assets/Scripts/Player.cs" Line="207" Column="10" />
       <File FileName="Assets/Scripts/Gun.cs" Line="22" Column="6" />
-      <File FileName="Assets/Scripts/MouseLook.cs" Line="42" Column="28" />
+      <File FileName="Assets/Scripts/MouseLook.cs" Line="34" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +15,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a65a6054-8f83-41a6-bef7-fb9f2a5e72cf" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5fa357b0-bffe-45bd-86b9-a35d11f53409" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
