@@ -1223,7 +1223,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 7536261544965393091, guid: 0ae7cf4ceacf04e03bd316702a0e0373, type: 3}
+  m_Mesh: {fileID: 7536261544965393091, guid: b572ecc07d84f417ca45732a006aa827, type: 3}
   m_Bones:
   - {fileID: 8807339876481191377}
   - {fileID: 9102070767079734850}
@@ -1391,6 +1391,7 @@ MonoBehaviour:
   Gun: {fileID: 4515085495813940882}
   BloodHit: {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069, type: 3}
   GroundHit: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+  Health: 10
 --- !u!114 &8472959449860025205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2256,7 +2257,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 2612351743713780013, guid: 0ae7cf4ceacf04e03bd316702a0e0373, type: 3}
+  m_Mesh: {fileID: 2612351743713780013, guid: b572ecc07d84f417ca45732a006aa827, type: 3}
   m_Bones:
   - {fileID: 8807339876481191377}
   - {fileID: 9102070767079734850}
