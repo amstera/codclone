@@ -4,6 +4,7 @@ using UnityEngine;
 public class MouseLook : NetworkBehaviour
 {
     public Camera MainCamera;
+    public Camera AimCamera;
 	public RotationAxes axes = RotationAxes.MouseXAndY;
 	public float sensitivityX = 15F;
 	public float sensitivityY = 15F;
@@ -11,15 +12,18 @@ public class MouseLook : NetworkBehaviour
 	public float maximumX = 360F;
 	public float minimumY = -60F;
 	public float maximumY = 60F;
-	float rotationX;
-	float rotationY;
-	Quaternion originalCameraRotation;
-	Quaternion originalPlayerRotation;
 
-	void Start()
+	private float rotationX;
+	private float rotationY;
+	private Quaternion originalCameraRotation;
+    private Quaternion originalAimCameraRotation;
+    private Quaternion originalPlayerRotation;
+
+    void Start()
 	{
 		originalCameraRotation = MainCamera.transform.localRotation;
-		originalPlayerRotation = transform.localRotation;
+        originalAimCameraRotation = AimCamera.transform.localRotation;
+        originalPlayerRotation = transform.localRotation;
 	}
 
 	void Update()
@@ -27,6 +31,20 @@ public class MouseLook : NetworkBehaviour
         if (!isLocalPlayer)
         {
             return;
+        }
+
+        Camera viewedCamera = MainCamera.enabled ? MainCamera : AimCamera;
+        Quaternion camRotation = MainCamera.enabled ? originalCameraRotation : originalAimCameraRotation;
+
+        if (viewedCamera == MainCamera)
+        {
+            minimumY = -60f;
+            maximumY = 60f;
+        }
+        else
+        {
+            minimumY = -15;
+            maximumY = 5;
         }
 
         if (axes == RotationAxes.MouseXAndY)
@@ -38,7 +56,7 @@ public class MouseLook : NetworkBehaviour
 			Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
 			Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
 			transform.localRotation = originalPlayerRotation * xQuaternion;
-			MainCamera.transform.localRotation = originalCameraRotation * yQuaternion;
+            viewedCamera.transform.localRotation = camRotation * yQuaternion;
 		}
 		else if (axes == RotationAxes.MouseX)
 		{
@@ -52,7 +70,7 @@ public class MouseLook : NetworkBehaviour
 			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
 			rotationY = ClampAngle(rotationY, minimumY, maximumY);
 			Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
-			MainCamera.transform.localRotation = originalCameraRotation * yQuaternion;
+            viewedCamera.transform.localRotation = camRotation * yQuaternion;
 		}
 	}
 

@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637521354440000000
-    m_Hash: 1874649514
+      ticks: 637522017540000000
+    m_Hash: 2334976985
   m_LockFileStatus:
     m_FilePath: /Users/tylergreen/Games/Multiplayer COD/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637521354530000000
-    m_Hash: 2303075573
+      ticks: 637522017640000000
+    m_Hash: 1894061185
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -190,9 +190,9 @@ m_PackageAssets:
         version: 1.1.1
       resolvedDependencies:
       - name: com.unity.test-framework
-        version: 1.1.19
+        version: 1.1.22
       - name: com.unity.ext.nunit
-        version: 1.0.5
+        version: 1.0.6
       - name: com.unity.modules.imgui
         version: 1.0.0
       - name: com.unity.modules.jsonserialize
@@ -218,12 +218,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git
         revision: abb44f053e9a41d2e00e149e32a19bcec76e98b4
         path: 
-    - packageId: com.unity.ide.visualstudio@2.0.5
+    - packageId: com.unity.ide.visualstudio@2.0.7
       testable: 0
       isDirectDependency: 1
-      version: 2.0.5
+      version: 2.0.7
       source: 1
-      resolvedPath: /Users/tylergreen/Games/Multiplayer COD/Library/PackageCache/com.unity.ide.visualstudio@2.0.5
+      resolvedPath: /Users/tylergreen/Games/Multiplayer COD/Library/PackageCache/com.unity.ide.visualstudio@2.0.7
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -266,8 +266,18 @@ m_PackageAssets:
         - 2.0.5
         - 2.0.7
         verified: 2.0.7
-      dependencies: []
-      resolvedDependencies: []
+      dependencies:
+      - name: com.unity.test-framework
+        version: 1.1.9
+      resolvedDependencies:
+      - name: com.unity.test-framework
+        version: 1.1.22
+      - name: com.unity.ext.nunit
+        version: 1.0.6
+      - name: com.unity.modules.imgui
+        version: 1.0.0
+      - name: com.unity.modules.jsonserialize
+        version: 1.0.0
       keywords: []
       registry:
         id: main
@@ -281,13 +291,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637400980850000000
+      datePublishedTicks: 637486638490000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
-        revision: 83ca94e82bb6da515dc57e0d860b6b2224f56991
+        revision: dec282022c7a95fada560c36f53da9dd155a142c
         path: 
     - packageId: com.unity.ide.vscode@1.2.3
       testable: 0
@@ -408,13 +418,13 @@ m_PackageAssets:
         - 2.5.5
         - 2.6.0-exp.3
         - 2.6.0-exp.4
-        verified: 
+        verified: 2.5.5
       dependencies:
       - name: com.unity.timeline
         version: 1.0.0
       resolvedDependencies:
       - name: com.unity.timeline
-        version: 1.4.4
+        version: 1.4.6
       - name: com.unity.modules.director
         version: 1.0.0
       - name: com.unity.modules.audio
@@ -452,12 +462,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.recorder.git
         revision: f3dc97fa977473ea7eb4f8445879c2eb9ae8e553
         path: 
-    - packageId: com.unity.test-framework@1.1.19
+    - packageId: com.unity.test-framework@1.1.22
       testable: 0
       isDirectDependency: 1
-      version: 1.1.19
+      version: 1.1.22
       source: 1
-      resolvedPath: /Users/tylergreen/Games/Multiplayer COD/Library/PackageCache/com.unity.test-framework@1.1.19
+      resolvedPath: /Users/tylergreen/Games/Multiplayer COD/Library/PackageCache/com.unity.test-framework@1.1.22
       assetPath: Packages/com.unity.test-framework
       name: com.unity.test-framework
       displayName: Test Framework
@@ -501,21 +511,19 @@ m_PackageAssets:
         - 1.1.22
         - 1.1.24
         compatible:
-        - 1.1.19
-        - 1.1.20
         - 1.1.22
         - 1.1.24
         verified: 1.1.24
       dependencies:
       - name: com.unity.ext.nunit
-        version: 1.0.5
+        version: 1.0.6
       - name: com.unity.modules.imgui
         version: 1.0.0
       - name: com.unity.modules.jsonserialize
         version: 1.0.0
       resolvedDependencies:
       - name: com.unity.ext.nunit
-        version: 1.0.5
+        version: 1.0.6
       - name: com.unity.modules.imgui
         version: 1.0.0
       - name: com.unity.modules.jsonserialize
@@ -535,13 +543,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637413148910000000
+      datePublishedTicks: 637469345300000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: git+https://github.com/Unity-Technologies/com.unity.test-framework.git
-        revision: 83583c7273ee961612200215e8989039bbce8748
+        revision: 56c667cbc326a1cbab8dfd7ebc693a1121d0abe1
         path: 
     - packageId: com.unity.textmeshpro@3.0.1
       testable: 0
@@ -694,12 +702,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.textmeshpro.git
         revision: 1604b62e543216408311bcd1355a7a9ca1e65765
         path: 
-    - packageId: com.unity.timeline@1.4.4
+    - packageId: com.unity.timeline@1.4.6
       testable: 0
       isDirectDependency: 1
-      version: 1.4.4
+      version: 1.4.6
       source: 1
-      resolvedPath: /Users/tylergreen/Games/Multiplayer COD/Library/PackageCache/com.unity.timeline@1.4.4
+      resolvedPath: /Users/tylergreen/Games/Multiplayer COD/Library/PackageCache/com.unity.timeline@1.4.6
       assetPath: Packages/com.unity.timeline
       name: com.unity.timeline
       displayName: Timeline
@@ -774,43 +782,6 @@ m_PackageAssets:
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         compatible:
-        - 1.2.6
-        - 1.2.7
-        - 1.2.9
-        - 1.2.10
-        - 1.2.11
-        - 1.2.12
-        - 1.2.13
-        - 1.2.14
-        - 1.2.15
-        - 1.2.16
-        - 1.2.17
-        - 1.2.18
-        - 1.3.0-preview.2
-        - 1.3.0-preview.3
-        - 1.3.0-preview.5
-        - 1.3.0-preview.6
-        - 1.3.0-preview.7
-        - 1.3.0
-        - 1.3.1
-        - 1.3.2
-        - 1.3.3
-        - 1.3.4
-        - 1.3.5
-        - 1.3.6
-        - 1.3.7
-        - 1.4.0-preview.1
-        - 1.4.0-preview.2
-        - 1.4.0-preview.3
-        - 1.4.0-preview.5
-        - 1.4.0-preview.6
-        - 1.4.0-preview.7
-        - 1.4.0
-        - 1.4.1
-        - 1.4.2
-        - 1.4.3
-        - 1.4.4
-        - 1.4.5
         - 1.4.6
         - 1.4.7
         - 1.5.0-pre.2
@@ -863,20 +834,20 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637389011320000000
+      datePublishedTicks: 637463150940000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.timeline.git
-        revision: ebd6c3e005f9c4dc8bea51f72609192d29bd29d3
+        revision: 2fe55e5d14362cc4fdcc886f56dbfe518298e4a5
         path: 
     - packageId: com.unity.ugui@1.0.0
       testable: 0
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.ugui
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.ugui
       assetPath: Packages/com.unity.ugui
       name: com.unity.ugui
       displayName: Unity UI
@@ -939,7 +910,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.ai
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.ai
       assetPath: Packages/com.unity.modules.ai
       name: com.unity.modules.ai
       displayName: AI
@@ -987,7 +958,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.androidjni
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.androidjni
       assetPath: Packages/com.unity.modules.androidjni
       name: com.unity.modules.androidjni
       displayName: Android JNI
@@ -1035,7 +1006,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.animation
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.animation
       assetPath: Packages/com.unity.modules.animation
       name: com.unity.modules.animation
       displayName: Animation
@@ -1083,7 +1054,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.assetbundle
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.assetbundle
       assetPath: Packages/com.unity.modules.assetbundle
       name: com.unity.modules.assetbundle
       displayName: Asset Bundle
@@ -1131,7 +1102,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.audio
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.audio
       assetPath: Packages/com.unity.modules.audio
       name: com.unity.modules.audio
       displayName: Audio
@@ -1179,7 +1150,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.cloth
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.cloth
       assetPath: Packages/com.unity.modules.cloth
       name: com.unity.modules.cloth
       displayName: Cloth
@@ -1231,7 +1202,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.director
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.director
       assetPath: Packages/com.unity.modules.director
       name: com.unity.modules.director
       displayName: Director
@@ -1287,7 +1258,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.imageconversion
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.imageconversion
       assetPath: Packages/com.unity.modules.imageconversion
       name: com.unity.modules.imageconversion
       displayName: Image Conversion
@@ -1336,7 +1307,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.imgui
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.imgui
       assetPath: Packages/com.unity.modules.imgui
       name: com.unity.modules.imgui
       displayName: IMGUI
@@ -1384,7 +1355,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.jsonserialize
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.jsonserialize
       assetPath: Packages/com.unity.modules.jsonserialize
       name: com.unity.modules.jsonserialize
       displayName: JSONSerialize
@@ -1432,7 +1403,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.particlesystem
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.particlesystem
       assetPath: Packages/com.unity.modules.particlesystem
       name: com.unity.modules.particlesystem
       displayName: Particle System
@@ -1480,7 +1451,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.physics
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.physics
       assetPath: Packages/com.unity.modules.physics
       name: com.unity.modules.physics
       displayName: Physics
@@ -1528,7 +1499,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.physics2d
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.physics2d
       assetPath: Packages/com.unity.modules.physics2d
       name: com.unity.modules.physics2d
       displayName: Physics 2D
@@ -1576,7 +1547,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.screencapture
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.screencapture
       assetPath: Packages/com.unity.modules.screencapture
       name: com.unity.modules.screencapture
       displayName: Screen Capture
@@ -1628,7 +1599,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.terrain
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.terrain
       assetPath: Packages/com.unity.modules.terrain
       name: com.unity.modules.terrain
       displayName: Terrain
@@ -1676,7 +1647,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.terrainphysics
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.terrainphysics
       assetPath: Packages/com.unity.modules.terrainphysics
       name: com.unity.modules.terrainphysics
       displayName: Terrain Physics
@@ -1732,7 +1703,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.tilemap
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.tilemap
       assetPath: Packages/com.unity.modules.tilemap
       name: com.unity.modules.tilemap
       displayName: Tilemap
@@ -1784,7 +1755,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.ui
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.ui
       assetPath: Packages/com.unity.modules.ui
       name: com.unity.modules.ui
       displayName: UI
@@ -1832,7 +1803,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.uielements
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.uielements
       assetPath: Packages/com.unity.modules.uielements
       name: com.unity.modules.uielements
       displayName: UIElements
@@ -1896,7 +1867,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.umbra
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.umbra
       assetPath: Packages/com.unity.modules.umbra
       name: com.unity.modules.umbra
       displayName: Umbra
@@ -1944,7 +1915,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unityanalytics
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unityanalytics
       assetPath: Packages/com.unity.modules.unityanalytics
       name: com.unity.modules.unityanalytics
       displayName: Unity Analytics
@@ -2000,7 +1971,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequest
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequest
       assetPath: Packages/com.unity.modules.unitywebrequest
       name: com.unity.modules.unitywebrequest
       displayName: Unity Web Request
@@ -2048,7 +2019,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequestassetbundle
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequestassetbundle
       assetPath: Packages/com.unity.modules.unitywebrequestassetbundle
       name: com.unity.modules.unitywebrequestassetbundle
       displayName: Unity Web Request Asset Bundle
@@ -2104,7 +2075,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequestaudio
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequestaudio
       assetPath: Packages/com.unity.modules.unitywebrequestaudio
       name: com.unity.modules.unitywebrequestaudio
       displayName: Unity Web Request Audio
@@ -2160,7 +2131,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequesttexture
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequesttexture
       assetPath: Packages/com.unity.modules.unitywebrequesttexture
       name: com.unity.modules.unitywebrequesttexture
       displayName: Unity Web Request Texture
@@ -2216,7 +2187,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequestwww
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.unitywebrequestwww
       assetPath: Packages/com.unity.modules.unitywebrequestwww
       name: com.unity.modules.unitywebrequestwww
       displayName: Unity Web Request WWW
@@ -2288,7 +2259,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.vehicles
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.vehicles
       assetPath: Packages/com.unity.modules.vehicles
       name: com.unity.modules.vehicles
       displayName: Vehicles
@@ -2340,7 +2311,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.video
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.video
       assetPath: Packages/com.unity.modules.video
       name: com.unity.modules.video
       displayName: Video
@@ -2400,7 +2371,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.vr
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.vr
       assetPath: Packages/com.unity.modules.vr
       name: com.unity.modules.vr
       displayName: VR
@@ -2462,7 +2433,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.wind
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.wind
       assetPath: Packages/com.unity.modules.wind
       name: com.unity.modules.wind
       displayName: Wind
@@ -2510,7 +2481,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.xr
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.xr
       assetPath: Packages/com.unity.modules.xr
       name: com.unity.modules.xr
       displayName: XR
@@ -2570,7 +2541,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.subsystems
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.subsystems
       assetPath: Packages/com.unity.modules.subsystems
       name: com.unity.modules.subsystems
       displayName: Subsystems
@@ -2622,7 +2593,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.0.0
       source: 2
-      resolvedPath: /Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.uielementsnative
+      resolvedPath: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.modules.uielementsnative
       assetPath: Packages/com.unity.modules.uielementsnative
       name: com.unity.modules.uielementsnative
       displayName: UIElements Native
@@ -2676,12 +2647,12 @@ m_PackageAssets:
         url: 
         revision: 
         path: 
-    - packageId: com.unity.ext.nunit@1.0.5
+    - packageId: com.unity.ext.nunit@1.0.6
       testable: 0
       isDirectDependency: 0
-      version: 1.0.5
+      version: 1.0.6
       source: 1
-      resolvedPath: /Users/tylergreen/Games/Multiplayer COD/Library/PackageCache/com.unity.ext.nunit@1.0.5
+      resolvedPath: /Users/tylergreen/Games/Multiplayer COD/Library/PackageCache/com.unity.ext.nunit@1.0.6
       assetPath: Packages/com.unity.ext.nunit
       name: com.unity.ext.nunit
       displayName: Custom NUnit
@@ -2729,15 +2700,15 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637413148740000000
+      datePublishedTicks: 637429759280000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ext.nunit.git
-        revision: 1b3e542964a65210e966f5bf8751f62b1dcd8d69
+        revision: 29ea4d6504a5f58fb3a6934db839aa80ae6d9d88
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
 m_ProjectPath: /Users/tylergreen/Games/Multiplayer COD/Packages
-m_EditorVersion: 2020.2.1f1 (270dd8c3da1c)
+m_EditorVersion: 2020.3.1f1 (77a89f25062f)

@@ -10,15 +10,23 @@ public class Player : NetworkBehaviour
     [Header("Particles")]
     public GameObject BloodHit;
     public GameObject GroundHit;
+    public int Health = 10;
 
     private Rigidbody rigidBody;
+    private Animator animator;
+    private GameObject lowHealth;
     private bool isGrounded = true;
     private bool isPaused;
     private bool isAiming;
+    private bool isWalking;
+    private bool isDead;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+        lowHealth = GameObject.Find("Canvas").transform.Find("Low Health").gameObject;
+        animator.SetInteger("AnimationState", 1);
         rigidBody.freezeRotation = true;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -30,6 +38,8 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
+        CheckHealth();
+
         if (!isLocalPlayer)
 		{
 			return;
@@ -52,25 +62,20 @@ public class Player : NetworkBehaviour
         }
 
         GunControls();
+
+        UpdateAnimations();
     }
 
     private void MoveControls()
     {
+        isWalking = true;
         if (Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward * Speed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.S))
+        else
         {
-            transform.position -= transform.forward * Speed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            transform.position -= transform.right * Speed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += transform.right * Speed * Time.deltaTime;
+            isWalking = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -127,6 +132,61 @@ public class Player : NetworkBehaviour
         SyncMuzzleFlashWithServer(this);
     }
 
+    private void UpdateAnimations()
+    {
+        if (isAiming)
+        {
+            if (isWalking)
+            {
+                UpdateAnimationState(3);
+            }
+            else
+            {
+                UpdateAnimationState(2);
+            }
+        }
+        else
+        {
+            if (isWalking)
+            {
+                UpdateAnimationState(0);
+            }
+            else
+            {
+                UpdateAnimationState(1);
+            }
+        }
+    }
+
+    private void UpdateAnimationState(int id)
+    {
+        if (animator.GetInteger("AnimationState") != id)
+        {
+            UpdateAnimationOnServer(this, id);
+        }
+    }
+
+    private void CheckHealth()
+    {
+        if (Health <= 0 && !isDead)
+        {
+            animator.enabled = false;
+            //die
+            isDead = true;
+        }
+        else if (isLocalPlayer)
+        {
+            if (Health <= 5)
+            {
+                lowHealth.SetActive(true);
+            }
+            else
+            {
+                lowHealth.SetActive(false);
+            }
+        }
+    }
+
     [Command]
     private void DamagePlayerOnServer(Player player, Vector3 point, Vector3 hitDirection)
     {
@@ -150,6 +210,12 @@ public class Player : NetworkBehaviour
         FireGunToClients(player);
     }
 
+    [Command]
+    private void UpdateAnimationOnServer(Player player, int id)
+    {
+        UpdateAnimationToClients(player, id);
+    }
+
     [ClientRpc]
     private void FireGunToClients(Player player)
     {
@@ -159,7 +225,14 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     private void HitPlayerToClients(Player player, Vector3 hitDirection)
     {
+        player.Health -= 5;
         player.GetComponent<Rigidbody>().AddForce(-hitDirection * 5, ForceMode.Impulse);
+    }
+
+    [ClientRpc]
+    private void UpdateAnimationToClients(Player player, int id)
+    {
+        player.animator.SetInteger("AnimationState", id);
     }
 
     private void ReleaseGun()
