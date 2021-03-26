@@ -12,70 +12,70 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51290
+54773
 Successfully changed project path to: /Users/tylergreen/Games/Multiplayer COD
 /Users/tylergreen/Games/Multiplayer COD
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 57.40 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 54.90 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.1f1 (77a89f25062f)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/tylergreen/Games/Multiplayer COD/Assets
 GfxDevice: creating device client; threaded=0
-2021-03-25 17:52:43.806 Unity[4884:118437] Color LCD preferred device: Intel Iris Pro Graphics (low power)
-2021-03-25 17:52:43.806 Unity[4884:118437] Metal devices available: 2
-2021-03-25 17:52:43.806 Unity[4884:118437] 0: AMD Radeon R9 M370X (high power)
-2021-03-25 17:52:43.806 Unity[4884:118437] 1: Intel Iris Pro Graphics (low power)
-2021-03-25 17:52:43.807 Unity[4884:118437] Using device AMD Radeon R9 M370X (high power)
+2021-03-25 23:44:13.711 Unity[11049:270968] Color LCD preferred device: Intel Iris Pro Graphics (low power)
+2021-03-25 23:44:13.711 Unity[11049:270968] Metal devices available: 2
+2021-03-25 23:44:13.711 Unity[11049:270968] 0: AMD Radeon R9 M370X (high power)
+2021-03-25 23:44:13.711 Unity[11049:270968] 1: Intel Iris Pro Graphics (low power)
+2021-03-25 23:44:13.711 Unity[11049:270968] Using device AMD Radeon R9 M370X (high power)
 Initializing Metal device caps: AMD Radeon R9 M370X
 Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = '/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56884
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56049
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.1f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.000801 seconds.
+Registered in 0.000890 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 43.41 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 61.30 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.930 seconds
+- Completed reload, in  3.008 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002038 seconds.
+Registered in 0.003717 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Find all reader and writers took 116 milliseconds
 Script Module: UnityEngine.UI.dll
-Weave behaviours and messages took165 milliseconds
-Find all reader and writers took 87 milliseconds
+Weave behaviours and messages took156 milliseconds
+Find all reader and writers took 76 milliseconds
 Script Module: UnityEngine.TestRunner.dll
-Weave behaviours and messages took58 milliseconds
-Find all reader and writers took 77 milliseconds
+Weave behaviours and messages took57 milliseconds
+Find all reader and writers took 79 milliseconds
 Script Module: SimpleWebTransport.dll
-Weave behaviours and messages took15 milliseconds
+Weave behaviours and messages took16 milliseconds
 Find all reader and writers took 78 milliseconds
 Script Module: Unity.Timeline.dll
-Weave behaviours and messages took72 milliseconds
-Find all reader and writers took 82 milliseconds
+Weave behaviours and messages took79 milliseconds
+Find all reader and writers took 97 milliseconds
 Script Module: Assembly-CSharp.dll
 [MouseLook] NetworkBehaviourProcessor
 [Player] NetworkBehaviourProcessor
-Weave behaviours and messages took49 milliseconds
-Find all reader and writers took 87 milliseconds
+Weave behaviours and messages took60 milliseconds
+Find all reader and writers took 114 milliseconds
 Script Module: Mirror.Examples.dll
 [Projectile] NetworkBehaviourProcessor
 [Tank] NetworkBehaviourProcessor
@@ -101,9 +101,9 @@ Script Module: Mirror.Examples.dll
 [PlayerController] NetworkBehaviourProcessor
 [RandomColor] NetworkBehaviourProcessor
 [ShootingTankBehaviour] NetworkBehaviourProcessor
-Weave behaviours and messages took77 milliseconds
-  ProcessSitesModule Mirror.Examples.dll elapsed time:00:00:00.0426920
-Find all reader and writers took 82 milliseconds
+Weave behaviours and messages took105 milliseconds
+  ProcessSitesModule Mirror.Examples.dll elapsed time:00:00:00.0571600
+Find all reader and writers took 95 milliseconds
 Script Module: Mirror.Components.dll
 [NetworkAnimator] NetworkBehaviourProcessor
 [NetworkRoomPlayer] NetworkBehaviourProcessor
@@ -135,56 +135,56 @@ Script Module: Mirror.Components.dll
 [NetworkTransformBase] NetworkBehaviourProcessor
 [NetworkTransformBase] NetworkBehaviourProcessor
 [NetworkTransformChild] NetworkBehaviourProcessor
-Weave behaviours and messages took80 milliseconds
-  ProcessSitesModule Mirror.Components.dll elapsed time:00:00:00.0053190
-Find all reader and writers took 77 milliseconds
+Weave behaviours and messages took119 milliseconds
+  ProcessSitesModule Mirror.Components.dll elapsed time:00:00:00.0057090
+Find all reader and writers took 81 milliseconds
 Script Module: Mirror.Tests.Common.dll
-Weave behaviours and messages took6 milliseconds
-Find all reader and writers took 108 milliseconds
+Weave behaviours and messages took5 milliseconds
+Find all reader and writers took 105 milliseconds
 Script Module: Unity.TextMeshPro.dll
-Weave behaviours and messages took187 milliseconds
-Find all reader and writers took 75 milliseconds
+Weave behaviours and messages took184 milliseconds
+Find all reader and writers took 87 milliseconds
 Script Module: Mirror.Tests.Runtime.dll
-Weave behaviours and messages took12 milliseconds
-Find all reader and writers took 71 milliseconds
-Script Module: Telepathy.dll
-Weave behaviours and messages took6 milliseconds
-Find all reader and writers took 72 milliseconds
-Script Module: Mirror.Authenticators.dll
-Weave behaviours and messages took34 milliseconds
-  ProcessSitesModule Mirror.Authenticators.dll elapsed time:00:00:00.0025810
-Find all reader and writers took 69 milliseconds
-Script Module: kcp2k.dll
 Weave behaviours and messages took11 milliseconds
-Find all reader and writers took 72 milliseconds
-Script Module: Mirror.Examples.Cloud.GUI.dll
+Find all reader and writers took 86 milliseconds
+Script Module: Telepathy.dll
 Weave behaviours and messages took7 milliseconds
-Find all reader and writers took 72 milliseconds
-Script Module: Mirror.Cloud.dll
+Find all reader and writers took 79 milliseconds
+Script Module: Mirror.Authenticators.dll
+Weave behaviours and messages took43 milliseconds
+  ProcessSitesModule Mirror.Authenticators.dll elapsed time:00:00:00.0032050
+Find all reader and writers took 66 milliseconds
+Script Module: kcp2k.dll
 Weave behaviours and messages took8 milliseconds
-Find all reader and writers took 76 milliseconds
+Find all reader and writers took 91 milliseconds
+Script Module: Mirror.Examples.Cloud.GUI.dll
+Weave behaviours and messages took10 milliseconds
+Find all reader and writers took 91 milliseconds
+Script Module: Mirror.Cloud.dll
+Weave behaviours and messages took11 milliseconds
+Find all reader and writers took 79 milliseconds
 Script Module: Unity.Recorder.dll
 Weave behaviours and messages took1 milliseconds
-Find all reader and writers took 101 milliseconds
+Find all reader and writers took 112 milliseconds
 Script Module: Mirror.Examples.Cloud.Pong.dll
 [Ball] NetworkBehaviourProcessor
 [BallManager] NetworkBehaviourProcessor
 [Player] NetworkBehaviourProcessor
-Weave behaviours and messages took32 milliseconds
-  ProcessSitesModule Mirror.Examples.Cloud.Pong.dll elapsed time:00:00:00.0027480
-Find all reader and writers took 73 milliseconds
+Weave behaviours and messages took38 milliseconds
+  ProcessSitesModule Mirror.Examples.Cloud.Pong.dll elapsed time:00:00:00.0029000
+Find all reader and writers took 79 milliseconds
 Script Module: Mirror.Tests.Performance.Runtime.dll
 Weave behaviours and messages took0 milliseconds
-Find all reader and writers took 74 milliseconds
+Find all reader and writers took 78 milliseconds
 Script Module: Unity.Recorder.Base.dll
 Weave behaviours and messages took0 milliseconds
-Find all reader and writers took 138 milliseconds
+Find all reader and writers took 189 milliseconds
 Script Module: UnityEditor.TestRunner.dll
-Weave behaviours and messages took80 milliseconds
-Find all reader and writers took 121 milliseconds
+Weave behaviours and messages took159 milliseconds
+Find all reader and writers took 239 milliseconds
 Script Module: UnityEditor.UI.dll
-Weave behaviours and messages took29 milliseconds
-Find all reader and writers took 132 milliseconds
+Weave behaviours and messages took46 milliseconds
+Find all reader and writers took 217 milliseconds
 Script Module: Mirror.Tests.dll
 [EmptyBehaviour] NetworkBehaviourProcessor
 [SyncVarGameObjectEqualExposedBehaviour] NetworkBehaviourProcessor
@@ -283,66 +283,42 @@ Script Module: Mirror.Tests.dll
 [VirtualTargetRpc] NetworkBehaviourProcessor
 [VirtualOverrideTargetRpcWithBase] NetworkBehaviourProcessor
 [TargetRpcBehaviour] NetworkBehaviourProcessor
-Weave behaviours and messages took312 milliseconds
-  ProcessSitesModule Mirror.Tests.dll elapsed time:00:00:00.0229190
-Find all reader and writers took 100 milliseconds
+Weave behaviours and messages took570 milliseconds
+  ProcessSitesModule Mirror.Tests.dll elapsed time:00:00:00.0406890
+Find all reader and writers took 141 milliseconds
 Script Module: WeaverTestExtraAssembly.dll
-Weave behaviours and messages took26 milliseconds
-  ProcessSitesModule WeaverTestExtraAssembly.dll elapsed time:00:00:00.0020650
-Find all reader and writers took 91 milliseconds
+Weave behaviours and messages took49 milliseconds
+  ProcessSitesModule WeaverTestExtraAssembly.dll elapsed time:00:00:00.0042400
+Find all reader and writers took 177 milliseconds
 Script Module: Mirror.CompilerSymbols.dll
 Weave behaviours and messages took0 milliseconds
 Mono: successfully reloaded assembly
-- Completed reload, in  8.265 seconds
+- Completed reload, in 10.151 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launching external process: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Tools/UnityShaderCompiler
 Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
-Refreshing native plugins compatible for Editor in 0.49 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1747 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 161.8 MB.
-System memory in use after: 161.9 MB.
+System memory in use before: 162.8 MB.
+System memory in use after: 162.8 MB.
 
 Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 2180.
-Total: 4.553212 ms (FindLiveObjects: 0.242212 ms CreateObjectMapping: 0.085777 ms MarkObjects: 4.088789 ms  DeleteObjects: 0.134643 ms)
+Total: 5.817274 ms (FindLiveObjects: 0.383463 ms CreateObjectMapping: 0.158309 ms MarkObjects: 5.151773 ms  DeleteObjects: 0.122232 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Images/Cobblestone.jpg
-  artifactKey: Guid(7e1cb92c1cc094df8a2493b14b832353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Cobblestone.jpg using Guid(7e1cb92c1cc094df8a2493b14b832353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db175a8a9f1b1fafab47c3ed716c8856') in 1.194307 seconds
-  Import took 1.200826 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.960544 seconds.
-  path: Assets/Images/Materials
-  artifactKey: Guid(c9e9be28d1be649ed83872b63581eb64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials using Guid(c9e9be28d1be649ed83872b63581eb64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a64342df6850585f3aeccd11fb147f41') in 0.002644 seconds
-  Import took 0.007314 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.005770 seconds.
-  path: Assets/Images/Cobblestone.jpg
-  artifactKey: Guid(7e1cb92c1cc094df8a2493b14b832353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Cobblestone.jpg using Guid(7e1cb92c1cc094df8a2493b14b832353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dc53225dc1b7c699217a03c05eb7f49') in 0.012989 seconds
-  Import took 0.016430 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.868318 seconds.
-  path: Assets/Images/Materials/Cobblestone.mat
-  artifactKey: Guid(185bdc99c2c744b1f87b5dded4e02ba2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials/Cobblestone.mat using Guid(185bdc99c2c744b1f87b5dded4e02ba2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f9957b935ee64e74b516adb769a88d5') in 1.304642 seconds
-  Import took 1.308743 seconds .
+  path: Assets/Scripts/Player.cs
+  artifactKey: Guid(97a01da09b6fb49da82a10ce5d5d9056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Player.cs using Guid(97a01da09b6fb49da82a10ce5d5d9056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba256762c23a38069c7f85fb3376d7bd') in 1.040019 seconds
+  Import took 1.044362 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005527 seconds.
+Registered in 0.002678 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
@@ -352,286 +328,14 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.306 seconds
+- Completed reload, in  1.362 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.56 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.57 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1713 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 167.7 MB.
-System memory in use after: 167.8 MB.
+System memory in use before: 160.9 MB.
+System memory in use after: 161.0 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2225.
-Total: 2.563631 ms (FindLiveObjects: 0.292164 ms CreateObjectMapping: 0.110255 ms MarkObjects: 2.103884 ms  DeleteObjects: 0.056142 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 230.578230 seconds.
-  path: Assets/Images/Cobblestone 2.png
-  artifactKey: Guid(65f87b7937903417284cab6027fbc7e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Cobblestone 2.png using Guid(65f87b7937903417284cab6027fbc7e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df3eaa83c2df5ea6d0c443cd7f71deb9') in 1.066458 seconds
-  Import took 1.070846 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.700482 seconds.
-  path: Assets/Images/Cobblestone 2.png
-  artifactKey: Guid(65f87b7937903417284cab6027fbc7e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Cobblestone 2.png using Guid(65f87b7937903417284cab6027fbc7e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9cff4c7e3076216cb50109f238f96be') in 0.026216 seconds
-  Import took 0.030658 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 56.153365 seconds.
-  path: Assets/Images/Materials/Cobblestone 2.mat
-  artifactKey: Guid(641a3b7f7f3924c7fb71162634711fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials/Cobblestone 2.mat using Guid(641a3b7f7f3924c7fb71162634711fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23fc386b3c2e54ba17ed7b575942486c') in 0.060537 seconds
-  Import took 0.064743 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 98.201132 seconds.
-  path: Assets/Images/Cobblestone 3.jpg
-  artifactKey: Guid(908c1b1e6149142688167e0f5c909e30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Cobblestone 3.jpg using Guid(908c1b1e6149142688167e0f5c909e30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe3cfa162686191ca39894f425b525be') in 0.013218 seconds
-  Import took 0.017783 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/Images/Cobblestone 4.png
-  artifactKey: Guid(901cdae63ea844939b07b7de21137eb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Cobblestone 4.png using Guid(901cdae63ea844939b07b7de21137eb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f72ec76bff9c09266be53706c4b039e') in 0.009762 seconds
-  Import took 0.012352 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.168744 seconds.
-  path: Assets/Images/Materials/Cobblestone 3.mat
-  artifactKey: Guid(eedefd8c39ae24ce5831fbb280ff9294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials/Cobblestone 3.mat using Guid(eedefd8c39ae24ce5831fbb280ff9294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70d844582bbb5dc967dea28b4c74e854') in 0.012470 seconds
-  Import took 0.018569 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003808 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.51 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.276 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.79 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1713 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 172.5 MB.
-System memory in use after: 172.6 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2230.
-Total: 2.280138 ms (FindLiveObjects: 0.235584 ms CreateObjectMapping: 0.115843 ms MarkObjects: 1.869997 ms  DeleteObjects: 0.057525 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 135.630554 seconds.
-  path: Assets/Images/Materials/Cobblestone 4.mat
-  artifactKey: Guid(0397fc22e151f4634b12f2f776f2d829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials/Cobblestone 4.mat using Guid(0397fc22e151f4634b12f2f776f2d829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3fa5d21f43128638fea399fbaed8886') in 0.086987 seconds
-  Import took 0.091605 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 89.470666 seconds.
-  path: Assets/Images/Materials/Cobblestone 2.mat
-  artifactKey: Guid(641a3b7f7f3924c7fb71162634711fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials/Cobblestone 2.mat using Guid(641a3b7f7f3924c7fb71162634711fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e49df1cd8ced93d36c79b4617168d8d2') in 0.025386 seconds
-  Import took 0.029564 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000293 seconds.
-  path: Assets/Images/Materials/Cobblestone 3.mat
-  artifactKey: Guid(eedefd8c39ae24ce5831fbb280ff9294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials/Cobblestone 3.mat using Guid(eedefd8c39ae24ce5831fbb280ff9294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90b0bbc9b46ccad5fb700a517ea29155') in 0.011743 seconds
-  Import took 0.015923 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000280 seconds.
-  path: Assets/Images/Materials/Cobblestone 4.mat
-  artifactKey: Guid(0397fc22e151f4634b12f2f776f2d829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials/Cobblestone 4.mat using Guid(0397fc22e151f4634b12f2f776f2d829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06f91932ec31bf6be12932ddd5ca4945') in 0.013812 seconds
-  Import took 0.019283 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000461 seconds.
-  path: Assets/Images/Materials/Cobblestone.mat
-  artifactKey: Guid(185bdc99c2c744b1f87b5dded4e02ba2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials/Cobblestone.mat using Guid(185bdc99c2c744b1f87b5dded4e02ba2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '163883e72966ef941118bd1f05542049') in 0.013410 seconds
-  Import took 0.017863 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002169 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.289 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1713 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 173.0 MB.
-System memory in use after: 173.1 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2234.
-Total: 2.918942 ms (FindLiveObjects: 0.304611 ms CreateObjectMapping: 0.137791 ms MarkObjects: 2.412482 ms  DeleteObjects: 0.062570 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002061 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.54 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.239 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.79 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1713 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 173.4 MB.
-System memory in use after: 173.5 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2237.
-Total: 2.000844 ms (FindLiveObjects: 0.182519 ms CreateObjectMapping: 0.061093 ms MarkObjects: 1.695181 ms  DeleteObjects: 0.061115 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 350.938859 seconds.
-  path: Assets/Images/Materials/Cobblestone 5.mat
-  artifactKey: Guid(826600dd66397464c952e4aabbe2196e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Materials/Cobblestone 5.mat using Guid(826600dd66397464c952e4aabbe2196e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24e7c5f40d4188b681a73b2e942f9b61') in 0.089733 seconds
-  Import took 0.094332 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 173.321683 seconds.
-  path: Assets/Models/Ruin.FBX
-  artifactKey: Guid(b30f39ced23244a9db5cfe4761bedff0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Ruin.FBX using Guid(b30f39ced23244a9db5cfe4761bedff0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c8e28d3c5a6705e12ed21125a45b0f9') in 0.707463 seconds
-  Import took 0.712713 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.214139 seconds.
-  path: Assets/Models/Ruin.obj
-  artifactKey: Guid(cbc0c42f14ae54719a2bd227798e2fd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Ruin.obj using Guid(cbc0c42f14ae54719a2bd227798e2fd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '904bef3011f9813aa40d3dde314909a6') in 2.093884 seconds
-  Import took 2.100769 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.185372 seconds.
-  path: Assets/Models/Ruin.obj
-  artifactKey: Guid(cbc0c42f14ae54719a2bd227798e2fd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Ruin.obj using Guid(cbc0c42f14ae54719a2bd227798e2fd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '904bef3011f9813aa40d3dde314909a6') in 0.168345 seconds
-  Import took 0.172703 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 30.286207 seconds.
-  path: Assets/Models/Ruin.3DS
-  artifactKey: Guid(f15a2d619e2ba4654b62b560472de97a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Ruin.3DS using Guid(f15a2d619e2ba4654b62b560472de97a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed5ed3458331ab6cc6f2bc0935424437') in 0.503240 seconds
-  Import took 0.507682 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 17.784431 seconds.
-  path: Assets/Models/Ruin.FBX
-  artifactKey: Guid(b30f39ced23244a9db5cfe4761bedff0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Ruin.FBX using Guid(b30f39ced23244a9db5cfe4761bedff0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25c00593bf8e641537a75238ce6774bb') in 0.120167 seconds
-  Import took 0.123848 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.206584 seconds.
-  path: Assets/Models/Ruin.FBX
-  artifactKey: Guid(b30f39ced23244a9db5cfe4761bedff0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Ruin.FBX using Guid(b30f39ced23244a9db5cfe4761bedff0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5fef0f1de851072acf157dfbe30c6f1') in 0.121056 seconds
-  Import took 0.125689 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 64.144992 seconds.
-  path: Assets/Models/Ruins_obj.obj
-  artifactKey: Guid(06192f5ac6d6043aebfb7dc5ac2ae54f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Ruins_obj.obj using Guid(06192f5ac6d6043aebfb7dc5ac2ae54f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c69e0512f4bbe6f3981bf6999a28943') in 0.229794 seconds
-  Import took 0.235078 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 44.147156 seconds.
-  path: Assets/Models/s.blend
-  artifactKey: Guid(a697e925a2ef1436cac8645f5183f54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/s.blend using Guid(a697e925a2ef1436cac8645f5183f54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dddecaa0ed7f334fcf4f08f7264106d3') in 0.417712 seconds
-  Import took 0.422247 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.944153 seconds.
-  path: Assets/Models/s.blend
-  artifactKey: Guid(a697e925a2ef1436cac8645f5183f54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/s.blend using Guid(a697e925a2ef1436cac8645f5183f54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a053f5c535f8de5e41903722c328cff') in 0.017023 seconds
-  Import took 0.020927 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000819 seconds.
-  path: Assets/Models/s.blend
-  artifactKey: Guid(a697e925a2ef1436cac8645f5183f54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/s.blend using Guid(a697e925a2ef1436cac8645f5183f54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a053f5c535f8de5e41903722c328cff') in 0.017994 seconds
-  Import took 0.021748 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002804 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.518 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.54 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1713 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 194.5 MB.
-System memory in use after: 194.6 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2244.
-Total: 3.194889 ms (FindLiveObjects: 0.229641 ms CreateObjectMapping: 0.108079 ms MarkObjects: 2.774277 ms  DeleteObjects: 0.081439 ms)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2183.
+Total: 2.233198 ms (FindLiveObjects: 0.276020 ms CreateObjectMapping: 0.065784 ms MarkObjects: 1.789738 ms  DeleteObjects: 0.100307 ms)
 

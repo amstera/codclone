@@ -186,7 +186,7 @@ public class Player : NetworkBehaviour
         }
         else
         {
-            rigidBody.AddForce(-hitDirection * 7.5f, ForceMode.Impulse);
+            //rigidBody.AddForce(-hitDirection * 7.5f, ForceMode.Impulse);
             if (Health <= 5 && isLocalPlayer)
             {
                 lowHealth.SetActive(true);
