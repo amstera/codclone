@@ -3,7 +3,9 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - DecalDestroyer
     - Gun
+    - Manager
     - MouseLook
+    - NM
     - Player
     - UnityEngine.PostProcessing.PostProcessingBehaviour
     - UnityEngine.PostProcessing.PostProcessingProfile
@@ -39,6 +41,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.Shadow
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Game.unity:
@@ -72,6 +75,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -89,39 +98,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1570}
     - Class: 114
-      Script: {instanceID: 1578}
+      Script: {instanceID: 1580}
     - Class: 114
-      Script: {instanceID: 1650}
+      Script: {instanceID: 1652}
     - Class: 114
-      Script: {instanceID: 2246}
+      Script: {instanceID: 1816}
     - Class: 114
-      Script: {instanceID: 2304}
+      Script: {instanceID: 2248}
     - Class: 114
-      Script: {instanceID: 2510}
+      Script: {instanceID: 2306}
     - Class: 114
-      Script: {instanceID: 2596}
+      Script: {instanceID: 2344}
     - Class: 114
-      Script: {instanceID: 2640}
+      Script: {instanceID: 2514}
     - Class: 114
-      Script: {instanceID: 2712}
+      Script: {instanceID: 2600}
     - Class: 114
-      Script: {instanceID: 2764}
+      Script: {instanceID: 2644}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 2716}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 2768}
     - Class: 114
-      Script: {instanceID: 4202}
+      Script: {instanceID: 3040}
     - Class: 114
-      Script: {instanceID: 4324}
+      Script: {instanceID: 3120}
     - Class: 114
-      Script: {instanceID: 4472}
+      Script: {instanceID: 3238}
     - Class: 114
-      Script: {instanceID: 4600}
+      Script: {instanceID: 4208}
     - Class: 114
-      Script: {instanceID: 4848}
+      Script: {instanceID: 4330}
     - Class: 114
-      Script: {instanceID: 4860}
+      Script: {instanceID: 4478}
+    - Class: 114
+      Script: {instanceID: 4606}
+    - Class: 114
+      Script: {instanceID: 4854}
+    - Class: 114
+      Script: {instanceID: 4866}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -395,6 +410,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: d2e890fa595d33c5b63b34cd1b1aa6b5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NM
+  - hash:
+      serializedVersion: 2
       Hash: 3fe74dd3b211760c4ed03510eafabc55
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.MultipleMatch
@@ -639,6 +660,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: a2742bcd43e90b00a94c5ead6eb6365a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Manager
   - hash:
       serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
@@ -1133,7 +1160,7 @@ ScriptsOnlyBuild:
     className: ChatWindow
   - hash:
       serializedVersion: 2
-      Hash: b1d71627bcfbc624b46d0dedb40748f2
+      Hash: 1ceba0ec15e4f4fc4eeca159b0c32027
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Gun

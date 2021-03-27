@@ -6,6 +6,9 @@ public class Gun : MonoBehaviour
     public Camera MainCamera;
     public Camera AimCamera;
 
+    [Header("Sounds")]
+    public AudioSource GunShot;
+
     public void AimGun()
     {
         MainCamera.enabled = false;
@@ -20,6 +23,7 @@ public class Gun : MonoBehaviour
 
     public void ShootGun()
     {
+        GunShot.Play();
         MuzzleFlash.SetActive(true);
         Invoke("StopMuzzleFlash", 0.25f);
     }

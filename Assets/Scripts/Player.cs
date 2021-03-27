@@ -29,11 +29,7 @@ public class Player : NetworkBehaviour
     private bool isPaused;
     private bool isAiming;
     private bool isWalking;
-
-    [SyncVar]
-    private int redPoints;
-    [SyncVar]
-    private int bluePoints;
+    private float timeSinceLastGunShot;
 
     private void Start()
     {
@@ -47,6 +43,7 @@ public class Player : NetworkBehaviour
             SetTeamColorOnServer(this);
             Transform canvas = GameObject.Find("Canvas").transform;
             lowHealth = canvas.Find("Low Health").gameObject;
+            UpdateScore();
             Cursor.lockState = CursorLockMode.Locked;
         }
         else
@@ -92,6 +89,19 @@ public class Player : NetworkBehaviour
         UpdateAnimations();
     }
 
+    public void UpdateScore()
+    {
+        if (isLocalPlayer)
+        {
+            Transform canvas = GameObject.Find("Canvas").transform;
+            Text blueScoreText = canvas.Find("Blue Score Text").GetComponent<Text>();
+            Text redScoreText = canvas.Find("Red Score Text").GetComponent<Text>();
+
+            redScoreText.text = Manager.Instance.RedPoints.ToString();
+            blueScoreText.text = Manager.Instance.BluePoints.ToString();
+        }
+    }
+
     private void MoveControls()
     {
         isWalking = true;
@@ -121,9 +131,10 @@ public class Player : NetworkBehaviour
     {
         if (isAiming)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && Time.time - timeSinceLastGunShot > 0.25f)
             {
                 ShootGunLocal();
+                timeSinceLastGunShot = Time.time;
             }
             else if (Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.LeftShift))
             {
@@ -236,23 +247,29 @@ public class Player : NetworkBehaviour
         {
             if (TeamColor == TeamColor.Red)
             {
-                AddPointToServer(TeamColor.Blue);
+                AddPointToServer(Manager.Instance, TeamColor.Blue);
             }
             else
             {
-                AddPointToServer(TeamColor.Red);
+                AddPointToServer(Manager.Instance, TeamColor.Red);
             }
-        }
 
-        /*
-        Invoke("Respawn", 5);
-        */
+            Invoke("RespawnPlayer", 2.5f);
+        }
     }
 
     private void UpdateTeamColorText(TeamColor oldValue, TeamColor newValue)
     {
         TeamText.text = newValue.ToString();
         TeamText.color = newValue == TeamColor.Red ? Color.red : Color.blue;
+
+        if (isLocalPlayer)
+        {
+            Transform canvas = GameObject.Find("Canvas").transform;
+            Text teamUpperText = canvas.Find("Team Text").GetComponent<Text>();
+            teamUpperText.text = $"{newValue} Team";
+            teamUpperText.color = TeamText.color;
+        }
     }
 
     [Command]
@@ -281,20 +298,23 @@ public class Player : NetworkBehaviour
     [Command]
     private void SetTeamColorOnServer(Player player)
     {
-        Player[] players = FindObjectsOfType<Player>();
-        int bluePlayers = players.Count(p => p.TeamColor == TeamColor.Blue);
-        int redPlayers = players.Count(p => p.TeamColor == TeamColor.Red);
-        if (bluePlayers > redPlayers)
+        if (player.TeamColor == TeamColor.None)
         {
-            player.TeamColor = TeamColor.Red;
-        }
-        else if (redPlayers > bluePlayers)
-        {
-            player.TeamColor = TeamColor.Blue;
-        }
-        else
-        {
-            player.TeamColor = Random.Range(0, 2) == 1 ? TeamColor.Red : TeamColor.Blue;
+            Player[] players = FindObjectsOfType<Player>();
+            int bluePlayers = players.Count(p => p.TeamColor == TeamColor.Blue);
+            int redPlayers = players.Count(p => p.TeamColor == TeamColor.Red);
+            if (bluePlayers > redPlayers)
+            {
+                player.TeamColor = TeamColor.Red;
+            }
+            else if (redPlayers > bluePlayers)
+            {
+                player.TeamColor = TeamColor.Blue;
+            }
+            else
+            {
+                player.TeamColor = Random.Range(0, 2) == 1 ? TeamColor.Red : TeamColor.Blue;
+            }
         }
 
         UpdateTeamColorOnClients();
@@ -307,18 +327,31 @@ public class Player : NetworkBehaviour
     }
 
     [Command]
-    private void AddPointToServer(TeamColor color)
+    private void AddPointToServer(Manager manager, TeamColor color)
     {
         if (color == TeamColor.Red)
         {
-            redPoints++;
+            manager.RedPoints++;
         }
         else
         {
-            bluePoints++;
+            manager.BluePoints++;
         }
+    }
 
-        UpdateScoreToClients(redPoints, bluePoints);
+    private void RespawnPlayer()
+    {
+        RespawnPlayer(this);
+    }
+
+    [Command]
+    private void RespawnPlayer(Player player)
+    {
+        NetworkConnection conn = player.connectionToClient;
+        GameObject newPlayer = Instantiate(NM.Instance.PlayerPrefab, NetworkManager.singleton.GetStartPosition().position, Quaternion.identity);
+        newPlayer.GetComponent<Player>().TeamColor = TeamColor;
+        NetworkServer.Destroy(player.gameObject);
+        NetworkServer.ReplacePlayerForConnection(conn, newPlayer, true);
     }
 
     [ClientRpc]
@@ -347,17 +380,6 @@ public class Player : NetworkBehaviour
             player.TeamText.text = player.TeamColor.ToString();
             player.TeamText.color = player.TeamColor == TeamColor.Red ? Color.red : Color.blue;
         }
-    }
-
-    [ClientRpc]
-    private void UpdateScoreToClients(int rp, int bp)
-    {
-        Transform canvas = GameObject.Find("Canvas").transform;
-        Text blueScoreText = canvas.Find("Blue Score Text").GetComponent<Text>();
-        Text redScoreText = canvas.Find("Red Score Text").GetComponent<Text>();
-
-        redScoreText.text = rp.ToString();
-        blueScoreText.text = bp.ToString();
     }
 
     private void ReleaseGun()
