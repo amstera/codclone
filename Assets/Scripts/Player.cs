@@ -1,25 +1,39 @@
+using System.Linq;
 using Mirror;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : NetworkBehaviour
 {
 	public float Speed = 5;
     public Camera MainCamera;
     public Gun Gun;
+    public TextMesh TeamText;
 
     [Header("Particles")]
     public GameObject BloodHit;
     public GameObject GroundHit;
+
+    [Header("Properties")]
     public int Health = 10;
+    [SyncVar]
     public bool IsDead;
+    [SyncVar(hook = "UpdateTeamColorText")]
+    public TeamColor TeamColor;
 
     private Rigidbody rigidBody;
     private Animator animator;
     private GameObject lowHealth;
+
     private bool isGrounded = true;
     private bool isPaused;
     private bool isAiming;
     private bool isWalking;
+
+    [SyncVar]
+    private int redPoints;
+    [SyncVar]
+    private int bluePoints;
 
     private void Start()
     {
@@ -30,12 +44,18 @@ public class Player : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            lowHealth = GameObject.Find("Canvas").transform.Find("Low Health").gameObject;
+            SetTeamColorOnServer(this);
+            Transform canvas = GameObject.Find("Canvas").transform;
+            lowHealth = canvas.Find("Low Health").gameObject;
             Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
             MainCamera.enabled = false;
+            if (IsDead)
+            {
+                Die(Vector3.one);
+            }
         }
     }
 
@@ -127,7 +147,10 @@ public class Player : NetworkBehaviour
             Player player = hit.collider.GetComponent<Player>();
             if (player != null)
             {
-                DamagePlayerOnServer(player, hit.point, hit.normal);
+                if (player.TeamColor != TeamColor)
+                {
+                    DamagePlayerOnServer(player, hit.point, hit.normal);
+                }
             }
             else
             {
@@ -186,7 +209,6 @@ public class Player : NetworkBehaviour
         }
         else
         {
-            //rigidBody.AddForce(-hitDirection * 7.5f, ForceMode.Impulse);
             if (Health <= 5 && isLocalPlayer)
             {
                 lowHealth.SetActive(true);
@@ -209,6 +231,28 @@ public class Player : NetworkBehaviour
         }
         GetComponent<BoxCollider>().enabled = false;
         IsDead = true;
+
+        if (isLocalPlayer)
+        {
+            if (TeamColor == TeamColor.Red)
+            {
+                AddPointToServer(TeamColor.Blue);
+            }
+            else
+            {
+                AddPointToServer(TeamColor.Red);
+            }
+        }
+
+        /*
+        Invoke("Respawn", 5);
+        */
+    }
+
+    private void UpdateTeamColorText(TeamColor oldValue, TeamColor newValue)
+    {
+        TeamText.text = newValue.ToString();
+        TeamText.color = newValue == TeamColor.Red ? Color.red : Color.blue;
     }
 
     [Command]
@@ -235,9 +279,46 @@ public class Player : NetworkBehaviour
     }
 
     [Command]
+    private void SetTeamColorOnServer(Player player)
+    {
+        Player[] players = FindObjectsOfType<Player>();
+        int bluePlayers = players.Count(p => p.TeamColor == TeamColor.Blue);
+        int redPlayers = players.Count(p => p.TeamColor == TeamColor.Red);
+        if (bluePlayers > redPlayers)
+        {
+            player.TeamColor = TeamColor.Red;
+        }
+        else if (redPlayers > bluePlayers)
+        {
+            player.TeamColor = TeamColor.Blue;
+        }
+        else
+        {
+            player.TeamColor = Random.Range(0, 2) == 1 ? TeamColor.Red : TeamColor.Blue;
+        }
+
+        UpdateTeamColorOnClients();
+    }
+
+    [Command]
     private void UpdateAnimationOnServer(Player player, int id)
     {
         UpdateAnimationToClients(player, id);
+    }
+
+    [Command]
+    private void AddPointToServer(TeamColor color)
+    {
+        if (color == TeamColor.Red)
+        {
+            redPoints++;
+        }
+        else
+        {
+            bluePoints++;
+        }
+
+        UpdateScoreToClients(redPoints, bluePoints);
     }
 
     [ClientRpc]
@@ -258,6 +339,27 @@ public class Player : NetworkBehaviour
         player.animator.SetInteger("AnimationState", id);
     }
 
+    [ClientRpc]
+    private void UpdateTeamColorOnClients()
+    {
+        foreach (Player player in FindObjectsOfType<Player>())
+        {
+            player.TeamText.text = player.TeamColor.ToString();
+            player.TeamText.color = player.TeamColor == TeamColor.Red ? Color.red : Color.blue;
+        }
+    }
+
+    [ClientRpc]
+    private void UpdateScoreToClients(int rp, int bp)
+    {
+        Transform canvas = GameObject.Find("Canvas").transform;
+        Text blueScoreText = canvas.Find("Blue Score Text").GetComponent<Text>();
+        Text redScoreText = canvas.Find("Red Score Text").GetComponent<Text>();
+
+        redScoreText.text = rp.ToString();
+        blueScoreText.text = bp.ToString();
+    }
+
     private void ReleaseGun()
     {
         Gun.ReleaseGun();
@@ -267,4 +369,11 @@ public class Player : NetworkBehaviour
     {
         Gun.AimGun();
     }
+}
+
+public enum TeamColor
+{
+    None = 0,
+    Red = 1,
+    Blue = 2
 }
