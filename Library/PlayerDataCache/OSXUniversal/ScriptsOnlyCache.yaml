@@ -20,12 +20,6 @@ ScriptsOnlyBuild:
     - Mirror.NetworkManagerHUD
     - Mirror.NetworkStartPosition
     - kcp2k.KcpTransport
-    Unity.Recorder.Editor.dll:
-    - UnityEditor.Recorder.MovieRecorderEditor
-    - UnityEditor.Recorder.MovieRecorderSettings
-    - UnityEditor.Recorder.RecorderControllerSettings
-    - UnityEditor.Recorder.RecorderSettingsPrefsEditor
-    - UnityEditor.Recorder.RecorderWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -43,6 +37,7 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Outline
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Text
@@ -84,6 +79,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -101,13 +98,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1570}
     - Class: 114
-      Script: {instanceID: 1578}
+      Script: {instanceID: 1572}
     - Class: 114
-      Script: {instanceID: 1650}
+      Script: {instanceID: 1580}
     - Class: 114
-      Script: {instanceID: 1718}
+      Script: {instanceID: 1652}
     - Class: 114
-      Script: {instanceID: 1816}
+      Script: {instanceID: 1720}
     - Class: 114
       Script: {instanceID: 2248}
     - Class: 114
@@ -125,25 +122,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2768}
     - Class: 114
-      Script: {instanceID: 3040}
+      Script: {instanceID: 2982}
     - Class: 114
-      Script: {instanceID: 3120}
+      Script: {instanceID: 3042}
     - Class: 114
-      Script: {instanceID: 3238}
+      Script: {instanceID: 3122}
     - Class: 114
-      Script: {instanceID: 4208}
+      Script: {instanceID: 3240}
     - Class: 114
-      Script: {instanceID: 4330}
+      Script: {instanceID: 3378}
     - Class: 114
-      Script: {instanceID: 4478}
+      Script: {instanceID: 4210}
     - Class: 114
-      Script: {instanceID: 4606}
+      Script: {instanceID: 4332}
     - Class: 114
-      Script: {instanceID: 4854}
+      Script: {instanceID: 4480}
     - Class: 114
-      Script: {instanceID: 4866}
+      Script: {instanceID: 4608}
     - Class: 114
-      Script: {instanceID: 21534}
+      Script: {instanceID: 4856}
+    - Class: 114
+      Script: {instanceID: 4868}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -187,6 +186,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: caa533b001ae39b864ba8425019e2268
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Shadow
   - hash:
       serializedVersion: 2
       Hash: 699619b86d9359741a4f58540298c80b
@@ -313,12 +318,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: HorizontalLayoutGroup
-  - hash:
-      serializedVersion: 2
-      Hash: caa533b001ae39b864ba8425019e2268
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Shadow
   - hash:
       serializedVersion: 2
       Hash: f0786811516f7de8befd7a3e181e567a
@@ -613,6 +612,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Recorder.dll
     namespaceName: UnityEngine.Recorder
     className: RecorderBindings
+  - hash:
+      serializedVersion: 2
+      Hash: 1af9c3fd53278ee0c9cf340d7fef7432
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloatingText
   - hash:
       serializedVersion: 2
       Hash: 917aa1c44bacc59bec5bbefdf8a55780
@@ -993,7 +998,7 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
-      Hash: 397ae6debcf99f28ec271fce65256a98
+      Hash: 755a3cb0c56cc50f18eab181ea4a249a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1231,12 +1236,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GunAim
-  - hash:
-      serializedVersion: 2
-      Hash: 1af9c3fd53278ee0c9cf340d7fef7432
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FloatingText
   platform: 2
   scenePathNames:
   - Assets/Scenes/Game.unity

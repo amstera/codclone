@@ -10,6 +10,7 @@ public class Player : NetworkBehaviour
     public Gun Gun;
     public TextMesh TeamText;
     public GameObject PointsText;
+    public Camera MiniMap;
 
     [Header("Particles")]
     public GameObject BloodHit;
@@ -26,6 +27,7 @@ public class Player : NetworkBehaviour
     private Rigidbody rigidBody;
     private Animator animator;
     private GameObject lowHealth;
+    private GameObject detonateText;
 
     private bool isGrounded = true;
     private bool isPaused;
@@ -47,12 +49,15 @@ public class Player : NetworkBehaviour
             SetTeamColorOnServer(this);
             Transform canvas = GameObject.Find("Canvas").transform;
             lowHealth = canvas.Find("Low Health").gameObject;
+            detonateText = canvas.Find("Detonate Text").gameObject;
+            detonateText.SetActive(false);
             UpdateScore();
             Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
             MainCamera.enabled = false;
+            MiniMap.enabled = false;
             if (IsDead)
             {
                 Die(Vector3.one);
@@ -182,6 +187,10 @@ public class Player : NetworkBehaviour
                     {
                         killCount++;
                         killsSinceBombDrop++;
+                        if (killsSinceBombDrop >= 3)
+                        {
+                            detonateText.SetActive(true);
+                        }
                     }
                 }
             }
@@ -296,8 +305,9 @@ public class Player : NetworkBehaviour
 
     private void DropBomb()
     {
-        // find another player and drop bomb on them
+        DropBombFromServer(this);
         killsSinceBombDrop = 0;
+        detonateText.SetActive(false);
     }
 
     [Command]
@@ -393,6 +403,26 @@ public class Player : NetworkBehaviour
         UpdatePlayerHealthOnClients(player);
     }
 
+    [Command]
+    private void DropBombFromServer(Player player)
+    {
+        Vector3 pos = Vector3.one;
+        foreach (Player p in FindObjectsOfType<Player>())
+        {
+            if (p.TeamColor != player.TeamColor)
+            {
+                pos = p.transform.position;
+                break;
+            }
+        }
+
+        GameObject explosion = Instantiate(Explosion, pos, Quaternion.identity);
+        NetworkServer.Spawn(explosion);
+        Destroy(explosion, 3.5f);
+
+        DropBombToClients(player.TeamColor, pos);
+    }
+
     [ClientRpc]
     private void FireGunToClients(Player player)
     {
@@ -425,6 +455,18 @@ public class Player : NetworkBehaviour
     private void UpdatePlayerHealthOnClients(Player player)
     {
         player.Health = 10;
+    }
+
+    [ClientRpc]
+    private void DropBombToClients(TeamColor teamColor, Vector3 pos)
+    {
+        foreach (Player player in FindObjectsOfType<Player>())
+        {
+            if (player.TeamColor != teamColor && Vector3.Distance(player.transform.position, pos) < 10)
+            {
+                player.Die(Vector3.one);
+            }
+        }
     }
 
     private void ReleaseGun()

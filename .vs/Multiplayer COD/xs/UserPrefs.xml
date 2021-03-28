@@ -2,12 +2,11 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
       <File FileName="Assets/Scripts/HealthKit.cs" Line="15" Column="14" />
-      <File FileName="Assets/Scripts/Player.cs" Line="297" Column="28" />
+      <File FileName="Assets/Scripts/Player.cs" Line="202" Column="1" />
       <File FileName="Assets/Scripts/Gun.cs" />
       <File FileName="Assets/Scripts/MouseLook.cs" />
       <File FileName="Assets/Scripts/NM.cs" />
-      <File FileName="Assets/Scripts/Manager.cs" Line="13" Column="30" />
-      <File FileName="Assets/Scripts/Floating Text.cs" Line="12" Column="45" />
+      <File FileName="Assets/Scripts/Manager.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,11 +18,9 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="42705c72-6f9d-4346-b8f7-2ce0b05088e7" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="50707fc4-33d7-417b-a5f9-0137b5b81f3e" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/tylergreen/Games/Multiplayer COD/Assets/Scripts/Player.cs" relfile="Assets/Scripts/Player.cs" line="427" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
