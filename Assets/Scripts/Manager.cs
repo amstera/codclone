@@ -8,7 +8,7 @@ public class Manager : NetworkBehaviour
     [SyncVar(hook = "ScoreUpdated")]
     public int BluePoints;
 
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {

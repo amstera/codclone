@@ -2,7 +2,9 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - DecalDestroyer
+    - FloatingText
     - Gun
+    - HealthKit
     - Manager
     - MouseLook
     - NM
@@ -23,6 +25,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Recorder.MovieRecorderSettings
     - UnityEditor.Recorder.RecorderControllerSettings
     - UnityEditor.Recorder.RecorderSettingsPrefsEditor
+    - UnityEditor.Recorder.RecorderWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -98,9 +101,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1570}
     - Class: 114
-      Script: {instanceID: 1580}
+      Script: {instanceID: 1578}
     - Class: 114
-      Script: {instanceID: 1652}
+      Script: {instanceID: 1650}
+    - Class: 114
+      Script: {instanceID: 1718}
     - Class: 114
       Script: {instanceID: 1816}
     - Class: 114
@@ -137,6 +142,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4854}
     - Class: 114
       Script: {instanceID: 4866}
+    - Class: 114
+      Script: {instanceID: 21534}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -240,6 +247,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror.Discovery
     className: NetworkDiscoveryHUD
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HealthKit
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -980,7 +993,7 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
-      Hash: 5d46539a1d0bef038f99cec6fdf5696f
+      Hash: 397ae6debcf99f28ec271fce65256a98
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1218,6 +1231,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GunAim
+  - hash:
+      serializedVersion: 2
+      Hash: 1af9c3fd53278ee0c9cf340d7fef7432
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloatingText
   platform: 2
   scenePathNames:
   - Assets/Scenes/Game.unity

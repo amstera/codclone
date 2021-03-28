@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/PostProcessing/Runtime/Components/FxaaComponent.cs" />
+    <Compile Include="Assets/Scripts/HealthKit.cs" />
     <Compile Include="Assets/Nokobot/Modern Guns - Handgun/_Demo Assets/SimpleShoot.cs" />
     <Compile Include="Assets/EffectExamples/Shared/Scripts/ExtinguishableFire.cs" />
     <Compile Include="Assets/EffectExamples/Shared/Scripts/ParticleMenu.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets/PostProcessing/Runtime/PostProcessingBehaviour.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Models/EyeAdaptationModel.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Utils/GraphicsUtils.cs" />
+    <Compile Include="Assets/Scripts/NM.cs" />
     <Compile Include="Assets/PostProcessing/Utilities/CustomMotionTexture/ExampleWheelController.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Components/VignetteComponent.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Utils/MaterialFactory.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Assets/PostProcessing/Runtime/Components/MotionBlurComponent.cs" />
     <Compile Include="Assets/EffectExamples/Shared/Scripts/ParticleExamples.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Attributes/MinAttribute.cs" />
+    <Compile Include="Assets/Scripts/Manager.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Models/UserLutModel.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Components/BloomComponent.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Models/MotionBlurModel.cs" />
@@ -113,8 +116,7 @@
     <Compile Include="Assets/PostProcessing/Runtime/Models/AntialiasingModel.cs" />
     <Compile Include="Assets/EffectExamples/Shared/Scripts/GunAim.cs" />
     <Compile Include="Assets/PostProcessing/Runtime/Models/DitheringModel.cs" />
-    <Compile Include="Assets/Scripts/NM.cs" />
-    <Compile Include="Assets/Scripts/Manager.cs" />
+    <Compile Include="Assets/Scripts/FloatingText.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll" />

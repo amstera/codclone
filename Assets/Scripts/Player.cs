@@ -9,10 +9,12 @@ public class Player : NetworkBehaviour
     public Camera MainCamera;
     public Gun Gun;
     public TextMesh TeamText;
+    public GameObject PointsText;
 
     [Header("Particles")]
     public GameObject BloodHit;
     public GameObject GroundHit;
+    public GameObject Explosion;
 
     [Header("Properties")]
     public int Health = 10;
@@ -30,6 +32,8 @@ public class Player : NetworkBehaviour
     private bool isAiming;
     private bool isWalking;
     private float timeSinceLastGunShot;
+    private int killCount;
+    private int killsSinceBombDrop;
 
     private void Start()
     {
@@ -84,6 +88,11 @@ public class Player : NetworkBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.A) && killsSinceBombDrop >= 3)
+        {
+            DropBomb();
+        }
+
         GunControls();
 
         UpdateAnimations();
@@ -99,6 +108,14 @@ public class Player : NetworkBehaviour
 
             redScoreText.text = Manager.Instance.RedPoints.ToString();
             blueScoreText.text = Manager.Instance.BluePoints.ToString();
+        }
+    }
+
+    public void ResetHealth()
+    {
+        if (isLocalPlayer)
+        {
+            ResetHealthToServer(this);
         }
     }
 
@@ -161,6 +178,11 @@ public class Player : NetworkBehaviour
                 if (player.TeamColor != TeamColor)
                 {
                     DamagePlayerOnServer(player, hit.point, hit.normal);
+                    if (player.Health <= 5)
+                    {
+                        killCount++;
+                        killsSinceBombDrop++;
+                    }
                 }
             }
             else
@@ -247,11 +269,11 @@ public class Player : NetworkBehaviour
         {
             if (TeamColor == TeamColor.Red)
             {
-                AddPointToServer(Manager.Instance, TeamColor.Blue);
+                AddPointToServer(Manager.Instance, TeamColor.Blue, transform.position);
             }
             else
             {
-                AddPointToServer(Manager.Instance, TeamColor.Red);
+                AddPointToServer(Manager.Instance, TeamColor.Red, transform.position);
             }
 
             Invoke("RespawnPlayer", 2.5f);
@@ -272,10 +294,17 @@ public class Player : NetworkBehaviour
         }
     }
 
+    private void DropBomb()
+    {
+        // find another player and drop bomb on them
+        killsSinceBombDrop = 0;
+    }
+
     [Command]
     private void DamagePlayerOnServer(Player player, Vector3 point, Vector3 hitDirection)
     {
         HitPlayerToClients(player, hitDirection);
+
         GameObject hit = Instantiate(BloodHit, point, Quaternion.identity);
         NetworkServer.Spawn(hit);
         Destroy(hit, 2.5f);
@@ -327,16 +356,20 @@ public class Player : NetworkBehaviour
     }
 
     [Command]
-    private void AddPointToServer(Manager manager, TeamColor color)
+    private void AddPointToServer(Manager manager, TeamColor color, Vector3 position)
     {
         if (color == TeamColor.Red)
         {
-            manager.RedPoints++;
+            manager.RedPoints += 10;
         }
         else
         {
-            manager.BluePoints++;
+            manager.BluePoints += 10;
         }
+
+        GameObject pointsText = Instantiate(PointsText, position, Quaternion.identity);
+        NetworkServer.Spawn(pointsText);
+        Destroy(pointsText, 3);
     }
 
     private void RespawnPlayer()
@@ -352,6 +385,12 @@ public class Player : NetworkBehaviour
         newPlayer.GetComponent<Player>().TeamColor = TeamColor;
         NetworkServer.Destroy(player.gameObject);
         NetworkServer.ReplacePlayerForConnection(conn, newPlayer, true);
+    }
+
+    [Command]
+    private void ResetHealthToServer(Player player)
+    {
+        UpdatePlayerHealthOnClients(player);
     }
 
     [ClientRpc]
@@ -380,6 +419,12 @@ public class Player : NetworkBehaviour
             player.TeamText.text = player.TeamColor.ToString();
             player.TeamText.color = player.TeamColor == TeamColor.Red ? Color.red : Color.blue;
         }
+    }
+
+    [ClientRpc]
+    private void UpdatePlayerHealthOnClients(Player player)
+    {
+        player.Health = 10;
     }
 
     private void ReleaseGun()
