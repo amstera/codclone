@@ -24,6 +24,12 @@ public class Player : NetworkBehaviour
     [SyncVar(hook = "UpdateTeamColorText")]
     public TeamColor TeamColor;
 
+    [Header("Sounds")]
+    public AudioSource Walking;
+    public AudioSource Hit;
+    public AudioSource HealthRestore;
+    public AudioSource Detonate;
+
     private Rigidbody rigidBody;
     private Animator animator;
     private GameObject lowHealth;
@@ -95,7 +101,7 @@ public class Player : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.A) && killsSinceBombDrop >= 3)
         {
-            DropBomb();
+            DetonateBomb();
         }
 
         GunControls();
@@ -120,6 +126,7 @@ public class Player : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
+            HealthRestore.Play();
             ResetHealthToServer(this);
         }
     }
@@ -129,10 +136,18 @@ public class Player : NetworkBehaviour
         isWalking = true;
         if (Input.GetKey(KeyCode.W))
         {
+            if (!Walking.isPlaying)
+            {
+                UpdateWalkingSoundOnServer(this, true);
+            }
             transform.position += transform.forward * Speed * Time.deltaTime;
         }
         else
         {
+            if (Walking.isPlaying)
+            {
+                UpdateWalkingSoundOnServer(this, false);
+            }
             isWalking = false;
         }
 
@@ -244,6 +259,8 @@ public class Player : NetworkBehaviour
             return;
         }
 
+        Hit.Play();
+
         Health -= 5;
         if (Health <= 0)
         {
@@ -303,9 +320,10 @@ public class Player : NetworkBehaviour
         }
     }
 
-    private void DropBomb()
+    private void DetonateBomb()
     {
-        DropBombFromServer(this);
+        Detonate.Play();
+        DetonateBombFromServer(this);
         killsSinceBombDrop = 0;
         detonateText.SetActive(false);
     }
@@ -391,10 +409,10 @@ public class Player : NetworkBehaviour
     private void RespawnPlayer(Player player)
     {
         NetworkConnection conn = player.connectionToClient;
-        GameObject newPlayer = Instantiate(NM.Instance.PlayerPrefab, NetworkManager.singleton.GetStartPosition().position, Quaternion.identity);
+        GameObject newPlayer = Instantiate(Manager.Instance.PlayerPrefab, NetworkManager.singleton.GetStartPosition().position, Quaternion.identity);
         newPlayer.GetComponent<Player>().TeamColor = TeamColor;
-        NetworkServer.Destroy(player.gameObject);
         NetworkServer.ReplacePlayerForConnection(conn, newPlayer, true);
+        NetworkServer.Destroy(player.gameObject);
     }
 
     [Command]
@@ -404,7 +422,7 @@ public class Player : NetworkBehaviour
     }
 
     [Command]
-    private void DropBombFromServer(Player player)
+    private void DetonateBombFromServer(Player player)
     {
         Vector3 pos = Vector3.one;
         foreach (Player p in FindObjectsOfType<Player>())
@@ -420,7 +438,13 @@ public class Player : NetworkBehaviour
         NetworkServer.Spawn(explosion);
         Destroy(explosion, 3.5f);
 
-        DropBombToClients(player.TeamColor, pos);
+        DetonateBombToClients(player.TeamColor, pos);
+    }
+
+    [Command]
+    private void UpdateWalkingSoundOnServer(Player player , bool playWalkingSound)
+    {
+        UpdateWalkingSoundToClients(player, playWalkingSound);
     }
 
     [ClientRpc]
@@ -458,7 +482,7 @@ public class Player : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void DropBombToClients(TeamColor teamColor, Vector3 pos)
+    private void DetonateBombToClients(TeamColor teamColor, Vector3 pos)
     {
         foreach (Player player in FindObjectsOfType<Player>())
         {
@@ -466,6 +490,19 @@ public class Player : NetworkBehaviour
             {
                 player.Die(Vector3.one);
             }
+        }
+    }
+
+    [ClientRpc]
+    private void UpdateWalkingSoundToClients(Player player, bool playWalkingSound)
+    {
+        if (playWalkingSound)
+        {
+            player.Walking.Play();
+        }
+        else
+        {
+            player.Walking.Stop();
         }
     }
 

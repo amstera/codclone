@@ -1,8 +1,10 @@
 using Mirror;
+using UnityEngine;
 
 public class Manager : NetworkBehaviour
 {
     public static Manager Instance;
+    public GameObject PlayerPrefab;
     [SyncVar(hook = "ScoreUpdated")]
     public int RedPoints;
     [SyncVar(hook = "ScoreUpdated")]

@@ -16,7 +16,6 @@ ScriptsOnlyBuild:
     - Mirror.NetworkTransformChild
     Mirror.dll:
     - Mirror.NetworkIdentity
-    - Mirror.NetworkManager
     - Mirror.NetworkManagerHUD
     - Mirror.NetworkStartPosition
     - kcp2k.KcpTransport
@@ -127,8 +126,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3042}
     - Class: 114
       Script: {instanceID: 3122}
-    - Class: 114
-      Script: {instanceID: 3240}
     - Class: 114
       Script: {instanceID: 3378}
     - Class: 114
@@ -422,7 +419,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: d2e890fa595d33c5b63b34cd1b1aa6b5
+      Hash: 91c6da7d11b27cfcdb51a97f9293fb11
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NM
@@ -680,7 +677,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: a2742bcd43e90b00a94c5ead6eb6365a
+      Hash: 916d67afacebf1b42fcc779a29c50110
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Manager
@@ -998,7 +995,7 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
-      Hash: 755a3cb0c56cc50f18eab181ea4a249a
+      Hash: 2df13618d7943e2975987c7864dcc3b6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
