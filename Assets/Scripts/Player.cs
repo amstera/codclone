@@ -42,6 +42,7 @@ public class Player : NetworkBehaviour
     private float timeSinceLastGunShot;
     private int killCount;
     private int killsSinceBombDrop;
+    private int requiredPointsToWin = 60;
 
     private void Start()
     {
@@ -119,6 +120,11 @@ public class Player : NetworkBehaviour
 
             redScoreText.text = Manager.Instance.RedPoints.ToString();
             blueScoreText.text = Manager.Instance.BluePoints.ToString();
+
+            if (Manager.Instance.BluePoints == requiredPointsToWin || Manager.Instance.RedPoints == requiredPointsToWin)
+            {
+                EndGame();
+            }
         }
     }
 
@@ -129,6 +135,13 @@ public class Player : NetworkBehaviour
             HealthRestore.Play();
             ResetHealthToServer(this);
         }
+    }
+
+    private void EndGame()
+    {
+        IsDead = true;
+        Manager.Instance.ShowFinalScore(TeamColor);
+        Invoke("ResetServer", 4.5f);
     }
 
     private void MoveControls()
@@ -405,6 +418,13 @@ public class Player : NetworkBehaviour
         RespawnPlayer(this);
     }
 
+    private void ResetServer()
+    {
+        Manager.Instance.HideFinalScore();
+        ResetServerOnServer();
+        RespawnPlayer();
+    }
+
     [Command]
     private void RespawnPlayer(Player player)
     {
@@ -445,6 +465,13 @@ public class Player : NetworkBehaviour
     private void UpdateWalkingSoundOnServer(Player player , bool playWalkingSound)
     {
         UpdateWalkingSoundToClients(player, playWalkingSound);
+    }
+
+    [Command]
+    private void ResetServerOnServer()
+    {
+        Manager.Instance.RedPoints = 0;
+        Manager.Instance.BluePoints = 0;
     }
 
     [ClientRpc]

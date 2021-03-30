@@ -36,6 +36,7 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
     - UnityEngine.UI.Outline
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.Shadow
@@ -94,6 +95,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 1566}
+    - Class: 114
+      Script: {instanceID: 1568}
     - Class: 114
       Script: {instanceID: 1570}
     - Class: 114
@@ -159,6 +162,8 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -419,7 +424,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 91c6da7d11b27cfcdb51a97f9293fb11
+      Hash: d94dc02682820a88e8647b4e7c49cff8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NM
@@ -677,7 +682,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 916d67afacebf1b42fcc779a29c50110
+      Hash: 12c1ef4356775829d9c856274ba33999
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Manager

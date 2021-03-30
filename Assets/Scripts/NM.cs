@@ -5,25 +5,36 @@ public class NM : NetworkManager
 {
     public Camera MainCamera;
     public Canvas Canvas;
+	public Canvas TitleCanvas;
 
-    override public void OnClientConnect(NetworkConnection conn)
+	override public void OnClientConnect(NetworkConnection conn)
     {
         base.OnClientConnect(conn);
         MainCamera.enabled = false;
         Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        TitleCanvas.enabled = false;
     }
 
     override public void OnClientDisconnect(NetworkConnection conn)
     {
-        //check if local player
         base.OnClientDisconnect(conn);
-        Canvas.renderMode = RenderMode.WorldSpace;
+        OnDisconnect();
     }
 
     override public void OnServerDisconnect(NetworkConnection conn)
     {
         base.OnServerDisconnect(conn);
+        if (conn.connectionId == 0)
+        {
+            OnDisconnect();
+        }
+    }
+
+    private void OnDisconnect()
+    {
         MainCamera.enabled = true;
         Canvas.renderMode = RenderMode.WorldSpace;
+        TitleCanvas.enabled = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
