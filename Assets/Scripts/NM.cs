@@ -1,5 +1,6 @@
 using Mirror;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NM : NetworkManager
 {
@@ -32,9 +33,7 @@ public class NM : NetworkManager
 
     private void OnDisconnect()
     {
-        MainCamera.enabled = true;
-        Canvas.renderMode = RenderMode.WorldSpace;
-        TitleCanvas.enabled = true;
-        Cursor.lockState = CursorLockMode.None;
+        Destroy(gameObject);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -1,12 +1,17 @@
 ﻿<Properties StartupConfiguration="{E7979B17-4912-27CD-C5B5-1179E0D60AF2}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="48" Column="6" />
-      <File FileName="Assets/Scripts/Manager.cs" Line="54" Column="10" />
-      <File FileName="Assets/Scripts/NM.cs" />
+      <File FileName="Assets/Scripts/Player.cs" Line="318" Column="10" />
+      <File FileName="Assets/Scripts/FlameThrower.cs" Line="26" Column="26" />
+      <File FileName="Assets/Scripts/Manager.cs" />
+      <File FileName="Assets/Scripts/NM.cs" Line="33" Column="1" />
       <File FileName="Assets/Scripts/HealthKit.cs" />
       <File FileName="Assets/Scripts/Gun.cs" />
       <File FileName="Assets/Scripts/MouseLook.cs" />
+      <File FileName="Assets/Scripts/FlameThrowerPickUp.cs" Line="22" Column="60" />
+      <File FileName="Assets/Mirror/Runtime/NetworkManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Mirror/Runtime/NetworkServer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Mirror/Runtime/NetworkConnection.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +23,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ecb2cffd-47e3-40d6-8a93-cd4c4a984072" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="77f5d30c-2848-48cf-b823-e5ee1f0e4296" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

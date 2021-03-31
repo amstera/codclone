@@ -8,9 +8,12 @@ public class Player : NetworkBehaviour
 	public float Speed = 5;
     public Camera MainCamera;
     public Gun Gun;
+    public FlameThrower FlameThrower;
     public TextMesh TeamText;
     public GameObject PointsText;
     public Camera MiniMap;
+    [SyncVar(hook = "ChangeWeapon")]
+    public Weapon ActiveWeapon;
 
     [Header("Particles")]
     public GameObject BloodHit;
@@ -23,12 +26,14 @@ public class Player : NetworkBehaviour
     public bool IsDead;
     [SyncVar(hook = "UpdateTeamColorText")]
     public TeamColor TeamColor;
+    public float IsBurningTime;
 
     [Header("Sounds")]
     public AudioSource Walking;
     public AudioSource Hit;
     public AudioSource HealthRestore;
     public AudioSource Detonate;
+    public AudioSource ChangeWeaponSound;
 
     private Rigidbody rigidBody;
     private Animator animator;
@@ -42,7 +47,8 @@ public class Player : NetworkBehaviour
     private float timeSinceLastGunShot;
     private int killCount;
     private int killsSinceBombDrop;
-    private int requiredPointsToWin = 60;
+    private int requiredPointsToWin = 50;
+    private bool isUsingFlameThrower;
 
     private void Start()
     {
@@ -50,6 +56,7 @@ public class Player : NetworkBehaviour
         animator = GetComponent<Animator>();
         animator.SetInteger("AnimationState", 1);
         rigidBody.freezeRotation = true;
+        ChangeWeapon(Weapon.None, ActiveWeapon);
 
         if (isLocalPlayer)
         {
@@ -84,6 +91,13 @@ public class Player : NetworkBehaviour
             lowHealth.SetActive(false);
         }
 
+        if (ActiveWeapon == Weapon.FlameThrower && FlameThrower.Fuel <= 0)
+        {
+            isUsingFlameThrower = false;
+            FlameThrower.HideFlame();
+            ChangeWeaponOnServer(this, Weapon.Gun);
+        }
+
         MoveControls();
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -106,6 +120,11 @@ public class Player : NetworkBehaviour
         }
 
         GunControls();
+
+        if (isUsingFlameThrower)
+        {
+            CheckForFlameDamage();
+        }
 
         UpdateAnimations();
     }
@@ -181,13 +200,34 @@ public class Player : NetworkBehaviour
     {
         if (isAiming)
         {
-            if (Input.GetMouseButtonDown(0) && Time.time - timeSinceLastGunShot > 0.25f)
+            if (Input.GetMouseButtonDown(0))
             {
-                ShootGunLocal();
-                timeSinceLastGunShot = Time.time;
+                if (ActiveWeapon == Weapon.Gun)
+                {
+                    if (Time.time - timeSinceLastGunShot > 0.25f)
+                    {
+                        ShootGunLocal();
+                        timeSinceLastGunShot = Time.time;
+                    }
+                }
+                else if (ActiveWeapon == Weapon.FlameThrower)
+                {
+                    ShootFlamethrowerLocal();
+                }
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                if (ActiveWeapon == Weapon.FlameThrower)
+                {
+                    StopFlamethrowerLocal();
+                }
             }
             else if (Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.LeftShift))
             {
+                if (ActiveWeapon == Weapon.FlameThrower)
+                {
+                    StopFlamethrowerLocal();
+                }
                 ReleaseGun();
                 isAiming = false;
             }
@@ -213,12 +253,7 @@ public class Player : NetworkBehaviour
                     DamagePlayerOnServer(player, hit.point, hit.normal);
                     if (player.Health <= 5)
                     {
-                        killCount++;
-                        killsSinceBombDrop++;
-                        if (killsSinceBombDrop >= 3)
-                        {
-                            detonateText.SetActive(true);
-                        }
+                        IncreaseKillCount();
                     }
                 }
             }
@@ -229,6 +264,18 @@ public class Player : NetworkBehaviour
         }
 
         SyncMuzzleFlashWithServer(this);
+    }
+
+    private void ShootFlamethrowerLocal()
+    {
+        isUsingFlameThrower = true;
+        SyncUseFlameThrowerWithServer(this, true);
+    }
+
+    private void StopFlamethrowerLocal()
+    {
+        isUsingFlameThrower = false;
+        SyncUseFlameThrowerWithServer(this, false);
     }
 
     private void UpdateAnimations()
@@ -274,7 +321,27 @@ public class Player : NetworkBehaviour
 
         Hit.Play();
 
-        Health -= 5;
+        TakeDamage(5, hitDirection);
+    }
+
+    private void TakeFireDamage()
+    {
+        if (IsDead)
+        {
+            return;
+        }
+
+        if (Health <= 3)
+        {
+            Hit.Play();
+        }
+
+        TakeDamage(3, Vector3.one);
+    }
+
+    private void TakeDamage(int amount, Vector3 hitDirection)
+    {
+        Health -= amount;
         if (Health <= 0)
         {
             Die(hitDirection);
@@ -341,6 +408,55 @@ public class Player : NetworkBehaviour
         detonateText.SetActive(false);
     }
 
+    private void ChangeWeapon(Weapon oldValue, Weapon newValue)
+    {
+        ChangeWeaponSound.Play();
+
+        Gun.gameObject.SetActive(false);
+        FlameThrower.gameObject.SetActive(false);
+
+        if (newValue == Weapon.Gun)
+        {
+            Gun.gameObject.SetActive(true);
+        }
+        else if (newValue == Weapon.FlameThrower)
+        {
+            FlameThrower.gameObject.SetActive(true);
+        }
+    }
+
+    private void CheckForFlameDamage()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            Player player = hit.collider.GetComponent<Player>();
+            if (player != null)
+            {
+                if (player.TeamColor != TeamColor && (Time.time - IsBurningTime) >= 0.15f)
+                {
+                    IsBurningTime = Time.time;
+                    FireDamagePlayerOnServer(player);
+                    if (player.Health <= 3)
+                    {
+                        IncreaseKillCount();
+                    }
+                }
+            }
+        }
+    }
+
+    private void IncreaseKillCount()
+    {
+        killCount++;
+        killsSinceBombDrop++;
+        if (killsSinceBombDrop >= 3)
+        {
+            detonateText.SetActive(true);
+        }
+    }
+
     [Command]
     private void DamagePlayerOnServer(Player player, Vector3 point, Vector3 hitDirection)
     {
@@ -349,6 +465,12 @@ public class Player : NetworkBehaviour
         GameObject hit = Instantiate(BloodHit, point, Quaternion.identity);
         NetworkServer.Spawn(hit);
         Destroy(hit, 2.5f);
+    }
+
+    [Command]
+    private void FireDamagePlayerOnServer(Player player)
+    {
+        FireDamagePlayerToClients(player);
     }
 
     [Command]
@@ -363,6 +485,12 @@ public class Player : NetworkBehaviour
     private void SyncMuzzleFlashWithServer(Player player)
     {
         FireGunToClients(player);
+    }
+
+    [Command]
+    private void SyncUseFlameThrowerWithServer(Player player, bool useFlame)
+    {
+        UseFlameThrowerToClients(player, useFlame);
     }
 
     [Command]
@@ -474,6 +602,12 @@ public class Player : NetworkBehaviour
         Manager.Instance.BluePoints = 0;
     }
 
+    [Command]
+    public void ChangeWeaponOnServer(Player player, Weapon weapon)
+    {
+        player.ActiveWeapon = weapon;
+    }
+
     [ClientRpc]
     private void FireGunToClients(Player player)
     {
@@ -481,9 +615,32 @@ public class Player : NetworkBehaviour
     }
 
     [ClientRpc]
+    private void UseFlameThrowerToClients(Player player, bool useFlame)
+    {
+        FlameThrower flameThrower = player.GetComponentInChildren<FlameThrower>();
+        if (flameThrower != null)
+        {
+            if (useFlame)
+            {
+                flameThrower.UseFlame();
+            }
+            else
+            {
+                flameThrower.HideFlame();
+            }
+        }
+    }
+
+    [ClientRpc]
     private void HitPlayerToClients(Player player, Vector3 hitDirection)
     {
         player.TakeHit(hitDirection);
+    }
+
+    [ClientRpc]
+    private void FireDamagePlayerToClients(Player player)
+    {
+        player.TakeFireDamage();
     }
 
     [ClientRpc]
@@ -549,4 +706,11 @@ public enum TeamColor
     None = 0,
     Red = 1,
     Blue = 2
+}
+
+public enum Weapon
+{
+    None = 0,
+    Gun = 1,
+    FlameThrower = 2
 }

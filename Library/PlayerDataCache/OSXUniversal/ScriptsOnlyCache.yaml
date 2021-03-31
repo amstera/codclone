@@ -2,6 +2,8 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - DecalDestroyer
+    - FlameThrower
+    - FlameThrowerPickUp
     - FloatingText
     - Gun
     - HealthKit
@@ -19,6 +21,12 @@ ScriptsOnlyBuild:
     - Mirror.NetworkManagerHUD
     - Mirror.NetworkStartPosition
     - kcp2k.KcpTransport
+    Unity.Recorder.Editor.dll:
+    - UnityEditor.Recorder.MovieRecorderEditor
+    - UnityEditor.Recorder.MovieRecorderSettings
+    - UnityEditor.Recorder.RecorderControllerSettings
+    - UnityEditor.Recorder.RecorderSettingsPrefsEditor
+    - UnityEditor.Recorder.RecorderWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -124,25 +132,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2768}
     - Class: 114
-      Script: {instanceID: 2982}
+      Script: {instanceID: 2872}
     - Class: 114
-      Script: {instanceID: 3042}
+      Script: {instanceID: 2984}
     - Class: 114
-      Script: {instanceID: 3122}
+      Script: {instanceID: 3044}
     - Class: 114
-      Script: {instanceID: 3378}
+      Script: {instanceID: 3124}
     - Class: 114
-      Script: {instanceID: 4210}
+      Script: {instanceID: 3380}
     - Class: 114
-      Script: {instanceID: 4332}
+      Script: {instanceID: 3614}
     - Class: 114
-      Script: {instanceID: 4480}
+      Script: {instanceID: 4214}
     - Class: 114
-      Script: {instanceID: 4608}
+      Script: {instanceID: 4336}
     - Class: 114
-      Script: {instanceID: 4856}
+      Script: {instanceID: 4484}
     - Class: 114
-      Script: {instanceID: 4868}
+      Script: {instanceID: 4612}
+    - Class: 114
+      Script: {instanceID: 4860}
+    - Class: 114
+      Script: {instanceID: 4872}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -598,6 +610,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
+      Hash: 0bec7d15b7d5f9f6ab527645a2586e66
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FlameThrower
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -832,6 +850,12 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
+      Hash: 1657543cd8fe2ddbca80dca432bfc975
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FlameThrowerPickUp
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1000,7 +1024,7 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
-      Hash: 2df13618d7943e2975987c7864dcc3b6
+      Hash: 02465ff27fd663003feac057bce1eab7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
