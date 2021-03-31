@@ -42,6 +42,7 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -102,59 +103,61 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1566}
-    - Class: 114
       Script: {instanceID: 1568}
     - Class: 114
       Script: {instanceID: 1570}
     - Class: 114
       Script: {instanceID: 1572}
     - Class: 114
-      Script: {instanceID: 1580}
+      Script: {instanceID: 1574}
     - Class: 114
-      Script: {instanceID: 1652}
+      Script: {instanceID: 1582}
     - Class: 114
-      Script: {instanceID: 1720}
+      Script: {instanceID: 1654}
     - Class: 114
-      Script: {instanceID: 2248}
+      Script: {instanceID: 1722}
     - Class: 114
-      Script: {instanceID: 2306}
+      Script: {instanceID: 2250}
     - Class: 114
-      Script: {instanceID: 2344}
+      Script: {instanceID: 2308}
     - Class: 114
-      Script: {instanceID: 2514}
+      Script: {instanceID: 2346}
     - Class: 114
-      Script: {instanceID: 2600}
+      Script: {instanceID: 2516}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 2716}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 2768}
+      Script: {instanceID: 2718}
     - Class: 114
-      Script: {instanceID: 2872}
+      Script: {instanceID: 2770}
     - Class: 114
-      Script: {instanceID: 2984}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 3044}
+      Script: {instanceID: 2986}
     - Class: 114
-      Script: {instanceID: 3124}
+      Script: {instanceID: 3046}
     - Class: 114
-      Script: {instanceID: 3380}
+      Script: {instanceID: 3126}
     - Class: 114
-      Script: {instanceID: 3614}
+      Script: {instanceID: 3144}
     - Class: 114
-      Script: {instanceID: 4214}
+      Script: {instanceID: 3382}
     - Class: 114
-      Script: {instanceID: 4336}
+      Script: {instanceID: 3616}
     - Class: 114
-      Script: {instanceID: 4484}
+      Script: {instanceID: 4216}
     - Class: 114
-      Script: {instanceID: 4612}
+      Script: {instanceID: 4338}
     - Class: 114
-      Script: {instanceID: 4860}
+      Script: {instanceID: 4486}
     - Class: 114
-      Script: {instanceID: 4872}
+      Script: {instanceID: 4614}
+    - Class: 114
+      Script: {instanceID: 4862}
+    - Class: 114
+      Script: {instanceID: 4874}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1265,4 +1268,4 @@ ScriptsOnlyBuild:
   platform: 2
   scenePathNames:
   - Assets/Scenes/Game.unity
-  playerPath: /Users/tylergreen/Desktop/Test.app
+  playerPath: /Users/tylergreen/Desktop/Multiplayer COD.app

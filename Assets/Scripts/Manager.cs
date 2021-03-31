@@ -63,6 +63,11 @@ public class Manager : NetworkBehaviour
         HUDCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
     }
 
+    public void LoadChannel()
+    {
+        Application.OpenURL("https://www.youtube.com/TylerGreen");
+    }
+
     private void ScoreUpdated(int oldValue, int newValue)
     {
         foreach (Player player in FindObjectsOfType<Player>())
